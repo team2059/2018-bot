@@ -34,6 +34,10 @@ public class OI {
 	JoystickButton button6 = new JoystickButton(auxJoystick, 1);
 	JoystickButton button7 = new JoystickButton(auxJoystick, 2);
 	JoystickButton button8 = new JoystickButton(auxJoystick, 3);
+	
+	public static Joystick getDriveJoystick() {
+		return driveJoystick;
+	}
 
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
