@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2059.robot;
 
+import org.usfirst.frc.team2059.robot.commands.Elevate;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -38,7 +40,13 @@ public class OI {
 	public static Joystick getDriveJoystick() {
 		return driveJoystick;
 	}
-
+	
+	
+	public OI() {
+		button1.whileHeld(new Elevate(1));
+		button2.whileHeld(new Elevate(-1));
+	}
+	
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
