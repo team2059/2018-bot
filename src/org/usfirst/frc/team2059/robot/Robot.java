@@ -25,7 +25,6 @@ import org.usfirst.frc.team2059.robot.subsystems.DriveBase;
  */
 public class Robot extends IterativeRobot {
 	public static OI oi;
-	public static DriveBase driveBase = new DriveBase();
 	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();

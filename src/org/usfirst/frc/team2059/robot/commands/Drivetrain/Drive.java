@@ -11,4 +11,9 @@ public class Drive extends CommandBase{
 	public Drive() {
 		requires(driveBase);
 	}
+
+	@Override
+	protected boolean isFinished() {
+		return false;
+	}
 }
