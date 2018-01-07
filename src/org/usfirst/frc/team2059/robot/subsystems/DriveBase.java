@@ -30,4 +30,12 @@ public class DriveBase extends Subsystem{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void deadzoneDrive(double x, double y, double z) {
+		if (Math.abs(x) < RobotMap.deadzone || Math.abs(y) < RobotMap.deadzone) {
+			drive(0, 0, 0);
+		}else {
+			drive(x , y, z);
+		}
+	}
 }
