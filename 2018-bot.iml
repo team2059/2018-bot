@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$wpilib$/cscore.jar!/" />
+    <libelement value="jar://$wpilib$/cscore-sources.jar!/" />
+    <libelement value="jar://$wpilib$/ntcore.jar!/" />
+    <libelement value="jar://$wpilib$/ntcore-sources.jar!/" />
+    <libelement value="jar://$wpilib$/opencv.jar!/" />
+    <libelement value="jar://$wpilib$/opencv-sources.jar!/" />
+    <libelement value="jar://$wpilib$/WPILib.jar!/" />
+    <libelement value="jar://$wpilib$/WPILib-sources.jar!/" />
+    <libelement value="jar://$wpilib$/wpiutil.jar!/" />
+    <libelement value="jar://$wpilib$/wpiutil-sources.jar!/" />
+    <src_description expected_position="1">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="1" />
+    </src_description>
+  </component>
+  <component name="FacetManager">
+    <facet type="FRC_FACET" name="FRC">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="cscore.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/cscore.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="cscore-sources.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/cscore-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ntcore.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/ntcore.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ntcore-sources.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/ntcore-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="opencv.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/opencv.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="opencv-sources.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/opencv-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="WPILib.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/WPILib.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="WPILib-sources.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/WPILib-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="wpiutil.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/wpiutil.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="wpiutil-sources.jar">
+        <CLASSES>
+          <root url="jar://$wpilib$/wpiutil-sources.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
