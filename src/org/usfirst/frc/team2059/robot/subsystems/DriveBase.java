@@ -24,12 +24,12 @@ public class DriveBase extends Subsystem{
 		rightEncoder.reset();
 	}
 	
-	public void getLeftEncoder() {
-		leftEncoder.get();
+	public double getLeftEncoder() {
+		return leftEncoder.get();
 	}
 	
-	public void getRightEncoder() {
-		rightEncoder.get();
+	public double getRightEncoder() {
+		return rightEncoder.get();
 	}
 	
 	public void drive(double x, double y, double z) {
@@ -55,6 +55,21 @@ public class DriveBase extends Subsystem{
 			drive(0, 0, 0);
 		}else {
 			drive(x , y, z);
+		}
+	}
+	
+	public void driveForward(double speed) {
+		if (getRightEncoder() - getLeftEncoder() > 1)
+		{
+			drive(RobotMap.correction, speed);
+		}
+		else if (getLeftEncoder() - getRightEncoder() > 1) 
+		{
+			drive(-RobotMap.correction, speed);
+		}
+		else
+		{
+			drive(0, speed);
 		}
 	}
 }
