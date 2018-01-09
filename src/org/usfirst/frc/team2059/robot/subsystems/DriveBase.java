@@ -24,6 +24,14 @@ public class DriveBase extends Subsystem{
 		rightEncoder.reset();
 	}
 	
+	public void getLeftEncoder() {
+		leftEncoder.get();
+	}
+	
+	public void getRightEncoder() {
+		rightEncoder.get();
+	}
+	
 	public void drive(double x, double y, double z) {
 		drive(x + z, y);
 	}
