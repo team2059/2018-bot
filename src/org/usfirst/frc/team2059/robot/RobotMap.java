@@ -20,6 +20,12 @@ public class RobotMap {
 	public static int LeftMotor2 = 1;
 	public static int RightMotor1 = 2;
 	public static int RightMotor2 = 3;
+	
+	public static int leftEncoder1 = 0;
+	public static int leftEncoder2 = 1;
+	public static int rightEncoder1 = 2;
+	public static int rightEncoder2 = 3;
+	
 	public static double deadzone = .12;
 
 	//Elevator
