@@ -1,14 +1,12 @@
 package org.usfirst.frc.team2059.robot.commands.Drivetrain;
 
-import edu.wpi.first.wpilibj.command.PIDCommand;
-
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import edu.wpi.first.wpilibj.command.PIDCommand;
 
+public class PIDTurn extends PIDCommand {
 
-public class PIDDrive extends PIDCommand {
-
-	public PIDDrive() {
+	public PIDTurn() {
 		super(RobotMap.Pconstant, RobotMap.Iconstant, RobotMap.Dconstant);
 		// TODO Auto-generated constructor stub
 	}
@@ -16,19 +14,18 @@ public class PIDDrive extends PIDCommand {
 	@Override
 	protected double returnPIDInput() {
 		// TODO Auto-generated method stub
-		return 0;
+		return CommandBase.driveBase.getGyro();
 	}
 
 	@Override
 	protected void usePIDOutput(double speed) {
 		// TODO Auto-generated method stub
-		CommandBase.driveBase.driveForward(speed);
+		CommandBase.driveBase.drive(speed, 0);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return Math.abs(getSetpoint()-getPosition()) < 1;
 	}
-	
+
 }

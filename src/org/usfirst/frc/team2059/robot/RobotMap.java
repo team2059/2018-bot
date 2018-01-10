@@ -26,8 +26,14 @@ public class RobotMap {
 	public static int rightEncoder1 = 2;
 	public static int rightEncoder2 = 3;
 	
+	public static int gyro = 1; 
+	
 	public static double correction = .1;
 	public static double deadzone = .12;
+	
+	public static double Pconstant = 1;
+	public static double Iconstant = 1;
+	public static double Dconstant = 1;
 
 	//Elevator
 	public static int elevatorMotor1 = 4;
