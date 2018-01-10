@@ -1,11 +1,13 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
 import org.usfirst.frc.team2059.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.VictorSP;
 
 public class Elevator {
-	VictorSP elevatorMotor1 = new VictorSP(RobotMap.elevatorMotor1);
-	VictorSP elevatorMotor2 = new VictorSP(RobotMap.elevatorMotor2);
+	Spark elevatorMotor1 = new Spark(RobotMap.elevatorMotor1);
+	Spark elevatorMotor2 = new Spark(RobotMap.elevatorMotor2);
 	
 	public void elevate(double s) {
 		elevatorMotor1.set(s);

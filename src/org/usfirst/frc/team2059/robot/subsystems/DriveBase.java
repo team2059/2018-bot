@@ -5,15 +5,16 @@ import org.usfirst.frc.team2059.robot.RobotMap;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 public class DriveBase extends Subsystem{
 
-	VictorSP LeftMotor1  = new VictorSP(RobotMap.LeftMotor1);
-	VictorSP LeftMotor2 = new VictorSP(RobotMap.LeftMotor2);
-	VictorSP RightMotor1 = new VictorSP(RobotMap.RightMotor1);
-	VictorSP RightMotor2 = new VictorSP(RobotMap.RightMotor2);
+	Spark LeftMotor1  = new Spark(RobotMap.LeftMotor1);
+	Spark LeftMotor2 = new Spark(RobotMap.LeftMotor2);
+	Spark RightMotor1 = new Spark(RobotMap.RightMotor1);
+	Spark RightMotor2 = new Spark(RobotMap.RightMotor2);
 	
 	Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
 	Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
