@@ -35,6 +35,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		
+		CommandBase.init();
+		
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
 		
