@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2059.robot.commands;
 
+import org.usfirst.frc.team2059.robot.subsystems.Collector;
 import org.usfirst.frc.team2059.robot.subsystems.DriveBase;
 import org.usfirst.frc.team2059.robot.subsystems.Elevator;
 
@@ -9,9 +10,11 @@ public abstract class CommandBase extends Command {
 	
 	public static DriveBase driveBase;
 	public static Elevator elevator;
+	public static Collector collector;
 	
 	public static void init() {
 	    driveBase = new DriveBase();
 	    elevator = new Elevator();
+	    collector = new Collector();
 	  }
 }

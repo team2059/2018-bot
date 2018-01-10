@@ -7,7 +7,9 @@
 
 package org.usfirst.frc.team2059.robot;
 
+import org.usfirst.frc.team2059.robot.commands.Eject;
 import org.usfirst.frc.team2059.robot.commands.Elevate;
+import org.usfirst.frc.team2059.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -45,6 +47,8 @@ public class OI {
 	public OI() {
 		button1.whileHeld(new Elevate(1));
 		button2.whileHeld(new Elevate(-1));
+		button3.whileHeld(new Intake(-1));
+		button4.whileHeld(new Eject(1));
 	}
 	
 	// There are a few additional built in buttons you can use. Additionally,

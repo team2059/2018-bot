@@ -38,4 +38,8 @@ public class RobotMap {
 	//Elevator
 	public static int elevatorMotor1 = 4;
 	public static int elevatorMotor2 = 5;
+	
+	//Collector
+	public static int collectorMotor1 = 6;
+	public static int collectorMotor2 = 7;
 }
