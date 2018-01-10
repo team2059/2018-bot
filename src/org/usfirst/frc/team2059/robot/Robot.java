@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2059.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -28,6 +30,8 @@ public class Robot extends IterativeRobot {
 	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	
+	public static UsbCamera camera;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -39,7 +43,9 @@ public class Robot extends IterativeRobot {
 		CommandBase.init();
 		
 		CommandBase.driveBase.resetLeftEncoder();
-		CommandBase.driveBase.resetRightEncoder();
+		CommandBase.driveBase.resetRightEncoder();	
+		
+		camera = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera);
 		
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());

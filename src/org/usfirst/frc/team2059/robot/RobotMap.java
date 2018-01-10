@@ -42,4 +42,7 @@ public class RobotMap {
 	//Collector
 	public static int collectorMotor1 = 6;
 	public static int collectorMotor2 = 7;
+	
+	//Vision
+	public static int camera = 0;
 }
