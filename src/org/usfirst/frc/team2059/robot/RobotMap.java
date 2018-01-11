@@ -45,4 +45,12 @@ public class RobotMap {
 	
 	//Vision
 	public static int camera = 0;
+	
+	//Pneumatics
+	public static int compressor = 10;
+	
+	public static int LeftRamp1 = 1;
+	public static int LeftRamp2 = 2;
+	public static int RightRamp1 = 3;
+	public static int RightRamp2 = 4;
 }
