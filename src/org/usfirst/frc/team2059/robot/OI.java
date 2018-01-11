@@ -31,14 +31,14 @@ public class OI {
 	private static Joystick driveJoystick = new Joystick(0);
 	private static Joystick auxJoystick = new Joystick(1);
 	
-	JoystickButton button1 = new JoystickButton(driveJoystick, 0);
-	JoystickButton button2 = new JoystickButton(driveJoystick, 1);
-	JoystickButton button3 = new JoystickButton(driveJoystick, 2);
-	JoystickButton button4 = new JoystickButton(driveJoystick, 3);
-	JoystickButton button5 = new JoystickButton(auxJoystick, 0);
-	JoystickButton button6 = new JoystickButton(auxJoystick, 1);
-	JoystickButton button7 = new JoystickButton(auxJoystick, 2);
-	JoystickButton button8 = new JoystickButton(auxJoystick, 3);
+	JoystickButton button1 = new JoystickButton(driveJoystick, 1);
+	JoystickButton button2 = new JoystickButton(driveJoystick, 2);
+	JoystickButton button3 = new JoystickButton(driveJoystick, 3);
+	JoystickButton button4 = new JoystickButton(driveJoystick, 4);
+	JoystickButton button5 = new JoystickButton(driveJoystick, 5);
+	JoystickButton button6 = new JoystickButton(driveJoystick, 6);
+	JoystickButton button7 = new JoystickButton(driveJoystick, 7);
+	JoystickButton button8 = new JoystickButton(driveJoystick, 8);
 	
 	public static Joystick getDriveJoystick() {
 		return driveJoystick;
