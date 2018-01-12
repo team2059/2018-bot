@@ -58,7 +58,11 @@ public class DriveBase extends Subsystem{
 	}
 	
 	public void drive(double x, double y) {
-		robotDrive.arcadeDrive(y * .8, x * .8);
+		robotDrive.arcadeDrive(sensitivity(y, .4), sensitivity(x, .4));
+	}
+	
+	public static double sensitivity(double raw, double constant) {
+		return constant * Math.pow(raw, 3) + (1 - constant) * raw;
 	}
 	
 	@Override
