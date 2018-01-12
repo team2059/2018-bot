@@ -1,18 +1,16 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
+import hhCore.drive.HHSensorDrive;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.Drive;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-
-public class DriveBase extends Subsystem{
+public class DriveBase extends HHSensorDrive {
 
 	Spark leftMotor1  = new Spark(RobotMap.LeftMotor1);
 	Spark leftMotor2 = new Spark(RobotMap.LeftMotor2);
@@ -28,69 +26,49 @@ public class DriveBase extends Subsystem{
 	SpeedControllerGroup right = new SpeedControllerGroup(rightMotor1, rightMotor2);
 
 	DifferentialDrive robotDrive = new DifferentialDrive(left, right);
-	
-	public void resetLeftEncoder() {
-		leftEncoder.reset();
+
+	public DriveBase() {
+		setCorrection(RobotMap.correction);
+		setDeadzone(RobotMap.deadzone);
 	}
-	
-	public void resetRightEncoder() {
-		rightEncoder.reset();
+
+	@Override
+	public AnalogGyro gyro() {
+		return gyro;
 	}
-	
-	public void resetGyro() {
-	    gyro.reset();
+
+	@Override
+	public Encoder leftEncoder() {
+		return leftEncoder;
 	}
-	
+
+	@Override
+	public Encoder rightEncoder() {
+		return rightEncoder;
+	}
+
+	@Override
 	public double getLeftEncoder() {
 		return leftEncoder.get();
 	}
-	
+
+	@Override
 	public double getRightEncoder() {
 		return rightEncoder.get();
 	}
-	
+
+	@Override
 	public double getGyro() {
 		return gyro.getAngle();
-	}
-	
-	public void drive(double x, double y, double z) {
-		drive(x + z, y);
-	}
-	
-	public void drive(double x, double y) {
-		robotDrive.arcadeDrive(sensitivity(y, .4), sensitivity(x, .4));
-	}
-	
-	public static double sensitivity(double raw, double constant) {
-		return constant * Math.pow(raw, 3) + (1 - constant) * raw;
 	}
 	
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new Drive());
 	}
-	
-	public void deadzoneDrive(double x, double y, double z) {
-		if (Math.abs(x) < RobotMap.deadzone || Math.abs(y) < RobotMap.deadzone) {
-			drive(0, 0, 0);
-		}else {
-			drive(x , y, z);
-		}
-	}
-	
-	public void driveForward(double speed) {
-		if (getRightEncoder() - getLeftEncoder() > 1)
-		{
-			drive(RobotMap.correction, speed);
-		}
-		else if (getLeftEncoder() - getRightEncoder() > 1) 
-		{
-			drive(-RobotMap.correction, speed);
-		}
-		else
-		{
-			drive(0, speed);
-		}
-	}
 
+	@Override
+	public void driveBase(double x, double y) {
+		robotDrive.arcadeDrive(x, y);	
+	}
 }
