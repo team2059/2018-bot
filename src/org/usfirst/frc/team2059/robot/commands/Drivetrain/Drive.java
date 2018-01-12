@@ -15,7 +15,7 @@ public class Drive extends CommandBase{
 	}
 	
 	public void execute() {
-		driveBase.drive(0, OI.getDriveJoystick().getRawAxis(1), OI.getDriveJoystick().getRawAxis(2));
+		driveBase.drive(OI.getDriveJoystick().getRawAxis(0), OI.getDriveJoystick().getRawAxis(1), OI.getDriveJoystick().getRawAxis(2));
 	}
 	@Override
 	protected boolean isFinished() {

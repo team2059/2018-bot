@@ -1,25 +1,33 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
 import org.usfirst.frc.team2059.robot.RobotMap;
+import org.usfirst.frc.team2059.robot.commands.Drivetrain.Drive;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 
 public class DriveBase extends Subsystem{
 
-	Spark LeftMotor1  = new Spark(RobotMap.LeftMotor1);
-	Spark LeftMotor2 = new Spark(RobotMap.LeftMotor2);
-	Spark RightMotor1 = new Spark(RobotMap.RightMotor1);
-	Spark RightMotor2 = new Spark(RobotMap.RightMotor2);
+	Spark leftMotor1  = new Spark(RobotMap.LeftMotor1);
+	Spark leftMotor2 = new Spark(RobotMap.LeftMotor2);
+	Spark rightMotor1 = new Spark(RobotMap.RightMotor1);
+	Spark rightMotor2 = new Spark(RobotMap.RightMotor2);
 	
 	Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
 	Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
 	
 	AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
+	
+	SpeedControllerGroup left = new SpeedControllerGroup(leftMotor1, leftMotor2);
+	SpeedControllerGroup right = new SpeedControllerGroup(rightMotor1, rightMotor2);
+
+	DifferentialDrive robotDrive = new DifferentialDrive(left, right);
 	
 	public void resetLeftEncoder() {
 		leftEncoder.reset();
@@ -50,17 +58,12 @@ public class DriveBase extends Subsystem{
 	}
 	
 	public void drive(double x, double y) {
-		LeftMotor1.set(-y + x);
-		LeftMotor2.set(-y + x);
-		
-		RightMotor1.set(y + x);
-		RightMotor2.set(y + x);
+		robotDrive.arcadeDrive(y * .8, x * .8);
 	}
 	
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new Drive());
 	}
 	
 	public void deadzoneDrive(double x, double y, double z) {

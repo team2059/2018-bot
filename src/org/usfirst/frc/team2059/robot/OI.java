@@ -10,7 +10,7 @@ package org.usfirst.frc.team2059.robot;
 import org.usfirst.frc.team2059.robot.commands.Eject;
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
-import org.usfirst.frc.team2059.robot.commands.SetRampState;
+//import org.usfirst.frc.team2059.robot.commands.SetRampState;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -50,7 +50,7 @@ public class OI {
 		button2.whileHeld(new Elevate(-1));
 		button3.whileHeld(new Intake(-1));
 		button4.whileHeld(new Eject(1));
-		button5.whileHeld(new SetRampState(true));
+		//button5.whileHeld(new SetRampState(true));
 	}
 	
 	// There are a few additional built in buttons you can use. Additionally,

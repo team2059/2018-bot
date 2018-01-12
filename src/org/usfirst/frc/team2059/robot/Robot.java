@@ -110,7 +110,7 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		
-		CommandBase.pneumatics.setCompressorEnabled(true);
+		//CommandBase.pneumatics.setCompressorEnabled(true);
 		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
