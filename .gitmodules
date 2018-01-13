@@ -1,0 +1,3 @@
+[submodule "src/hhCore"]
+	path = src/hhCore
+	url = git@github.com:team2059/hhCore.git
