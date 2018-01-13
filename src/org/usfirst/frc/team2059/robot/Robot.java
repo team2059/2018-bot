@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -47,7 +48,8 @@ public class Robot extends IterativeRobot {
 		camera = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera);
 		
 		oi = new OI();
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		m_chooser.addObject("Default", null);
+		m_chooser.addObject("Drive Straight", new PIDDrive(130));
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
 

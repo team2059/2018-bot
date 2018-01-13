@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveBase extends HHSensorDrive {
@@ -21,6 +22,11 @@ public class DriveBase extends HHSensorDrive {
 	Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
 	
 	AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
+	
+	Ultrasonic ultrasonic1 = new Ultrasonic(RobotMap.ultrasonic1, RobotMap.ultrasonic1);
+	Ultrasonic ultrasonic2 = new Ultrasonic(RobotMap.ultrasonic2, RobotMap.ultrasonic2);
+	Ultrasonic ultrasonic3 = new Ultrasonic(RobotMap.ultrasonic3, RobotMap.ultrasonic3);
+
 	
 	SpeedControllerGroup left = new SpeedControllerGroup(leftMotor1, leftMotor2);
 	SpeedControllerGroup right = new SpeedControllerGroup(rightMotor1, rightMotor2);
@@ -36,6 +42,9 @@ public class DriveBase extends HHSensorDrive {
 		setxHighSpeed(.6);
 		setyHighSpeed(.6);
 		setzHighSpeed(.6);
+		ultrasonic1.setAutomaticMode(true);
+		ultrasonic2.setAutomaticMode(true);
+		ultrasonic3.setAutomaticMode(true);
 	}
 
 	@Override
@@ -66,6 +75,18 @@ public class DriveBase extends HHSensorDrive {
 	@Override
 	public double getGyro() {
 		return gyro.getAngle();
+	}
+	
+	public double getUltrasonic1() {
+		return ultrasonic1.getRangeInches();
+	}
+	
+	public double getUltrasonic2() {
+		return ultrasonic2.getRangeInches();
+	}
+	
+	public double getUltrasonic3() {
+		return ultrasonic3.getRangeInches();
 	}
 	
 	@Override

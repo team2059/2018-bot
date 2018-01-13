@@ -8,27 +8,39 @@ import org.usfirst.frc.team2059.robot.commands.CommandBase;
 
 public class PIDDrive extends PIDCommand {
 
-	public PIDDrive() {
+	public PIDDrive(double inches) {
 		super(RobotMap.Pconstant, RobotMap.Iconstant, RobotMap.Dconstant);
-		// TODO Auto-generated constructor stub
+		
+		setTimeout(inches/12);
+		setSetpoint(inches);
 	}
-
+	
+	protected void initialize() {
+		CommandBase.driveBase.resetLeftEncoder();
+		CommandBase.driveBase.resetRightEncoder();
+	}
+	
 	@Override
 	protected double returnPIDInput() {
-		// TODO Auto-generated method stub
-		return 0;
+		return CommandBase.driveBase.getLeftEncoder();
 	}
 
 	@Override
 	protected void usePIDOutput(double speed) {
-		// TODO Auto-generated method stub
 		CommandBase.driveBase.driveForward(speed);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 1;
+	}
+	
+	protected void end() {
+		setTimeout(0);
+	}
+	
+	protected void interrupted() {
+		end();
 	}
 	
 }
