@@ -12,12 +12,12 @@ public abstract class CommandBase extends Command {
 	public static DriveBase driveBase;
 	public static Elevator elevator;
 	public static Collector collector;
-	//public static Pneumatics pneumatics;
+	public static Pneumatics pneumatics;
 	
 	public static void init() {
 	    driveBase = new DriveBase();
 	    elevator = new Elevator();
 	    collector = new Collector();
-	    //pneumatics = new Pneumatics();
+	    pneumatics = new Pneumatics();
 	  }
 }

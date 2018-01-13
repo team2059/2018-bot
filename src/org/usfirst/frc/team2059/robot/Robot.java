@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
-import org.usfirst.frc.team2059.robot.subsystems.DriveBase;
 
 /**
  * The VM is configured to automatically run this class, and to call the

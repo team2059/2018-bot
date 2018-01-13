@@ -5,6 +5,7 @@ import org.usfirst.frc.team2059.robot.RobotMap;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import hhCore.pneumatics.HHPneumatics;
 
 public class Pneumatics extends Subsystem {
 	
@@ -23,25 +24,11 @@ public class Pneumatics extends Subsystem {
 	}
 	
 	public void setLeftRampState(boolean state) {
-		if (leftState == true)
-		{
-			leftRamp.set(DoubleSolenoid.Value.kForward);
-		}
-		else
-		{
-			leftRamp.set(DoubleSolenoid.Value.kReverse);
-		}
+		HHPneumatics.enableSolenoid(state, leftRamp);
 	}
 	
 	public void setRightRampState(boolean state) {
-		if (rightState == true)
-		{
-			rightRamp.set(DoubleSolenoid.Value.kForward);
-		}
-		else
-		{
-			rightRamp.set(DoubleSolenoid.Value.kReverse);
-		}
+		HHPneumatics.enableSolenoid(state, rightRamp);
 	}
 	
 	public boolean getLeftRampState() {
