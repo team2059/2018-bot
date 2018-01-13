@@ -30,6 +30,12 @@ public class DriveBase extends HHSensorDrive {
 	public DriveBase() {
 		setCorrection(RobotMap.correction);
 		setDeadzone(RobotMap.deadzone);
+		setxSensitivity(0.0);
+		setySensitivity(0.0);
+		setzSensitivity(0.0);
+		setxHighSpeed(.6);
+		setyHighSpeed(.6);
+		setzHighSpeed(.6);
 	}
 
 	@Override
@@ -69,6 +75,6 @@ public class DriveBase extends HHSensorDrive {
 
 	@Override
 	public void driveBase(double x, double y) {
-		robotDrive.arcadeDrive(x, y);	
+		robotDrive.arcadeDrive(y, x);
 	}
 }
