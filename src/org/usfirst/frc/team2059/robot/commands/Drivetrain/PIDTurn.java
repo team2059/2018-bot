@@ -6,26 +6,26 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 
 public class PIDTurn extends PIDCommand {
 
-	public PIDTurn() {
-		super(RobotMap.Pconstant, RobotMap.Iconstant, RobotMap.Dconstant);
-		// TODO Auto-generated constructor stub
-	}
+	public PIDTurn(double angle) {
+		super(RobotMap.Pconstant + 1, RobotMap.Iconstant + 1, RobotMap.Dconstant + 1);
 
+		setTimeout(angle/30);
+		setSetpoint(angle);
+	}
+	
 	@Override
 	protected double returnPIDInput() {
-		// TODO Auto-generated method stub
 		return CommandBase.driveBase.getGyro();
 	}
 
 	@Override
 	protected void usePIDOutput(double speed) {
-		// TODO Auto-generated method stub
 		CommandBase.driveBase.drive(speed, 0);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return Math.abs(getSetpoint()-getPosition()) < 1;
+		return Math.abs(getSetpoint()-getPosition()) < 1 || isTimedOut();
 	}
 
 }

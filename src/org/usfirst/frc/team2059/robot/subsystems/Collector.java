@@ -13,12 +13,12 @@ public class Collector extends Subsystem {
 	
 	public void Collect(double s) {
 		collectorMotor1.set(s);
-		collectorMotor2.set(s);
+		collectorMotor2.set(-s);
 	}
 	
 	public void CollectEnd() {
 		collectorMotor1.set(0);
-		collectorMotor1.set(0);
+		collectorMotor2.set(0);
 	}
 	
 	@Override
@@ -26,5 +26,4 @@ public class Collector extends Subsystem {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

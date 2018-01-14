@@ -46,10 +46,10 @@ public class OI {
 	
 	
 	public OI() {
-		button1.whileHeld(new Elevate(1));
-		button2.whileHeld(new Elevate(-1));
-		button3.whileHeld(new Intake(-1));
-		button4.whileHeld(new Eject(1));
+		button3.whileHeld(new Elevate(1));
+		button4.whileHeld(new Elevate(-1));
+		button1.whileHeld(new Intake(-1));
+		button2.whileHeld(new Intake(1));
 		//button5.whileHeld(new SetRampState(true));
 	}
 	

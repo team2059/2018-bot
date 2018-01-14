@@ -12,7 +12,7 @@ public class PIDDrive extends PIDCommand {
 		super(RobotMap.Pconstant, RobotMap.Iconstant, RobotMap.Dconstant);
 		
 		setTimeout(inches/12);
-		setSetpoint(inches);
+		setSetpoint(inches); 
 	}
 	
 	protected void initialize() {

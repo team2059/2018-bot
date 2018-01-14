@@ -29,7 +29,7 @@ public class RobotMap {
 	public static int gyro = 1; 
 	
 	public static double correction = .1;
-	public static double deadzone = .12;
+	public static double deadzone = 0;
 	
 	public static int ultrasonic1 = 2;
 	public static int ultrasonic2 = 3;
@@ -40,12 +40,12 @@ public class RobotMap {
 	public static double Dconstant = 1;
 
 	//Elevator
-	public static int elevatorMotor1 = 4;
-	public static int elevatorMotor2 = 5;
+	public static int elevatorMotor1 = 6;
+	public static int elevatorMotor2 = 7;
 	
 	//Collector
-	public static int collectorMotor1 = 6;
-	public static int collectorMotor2 = 7;
+	public static int collectorMotor1 = 4;
+	public static int collectorMotor2 = 5;
 	
 	//Vision
 	public static int camera = 0;
