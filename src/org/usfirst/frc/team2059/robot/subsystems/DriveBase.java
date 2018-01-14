@@ -23,9 +23,9 @@ public class DriveBase extends HHSensorDrive {
 	
 	AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
 	
-	//Ultrasonic ultrasonic1 = new Ultrasonic(RobotMap.ultrasonic1, RobotMap.ultrasonic1);
-	//Ultrasonic ultrasonic2 = new Ultrasonic(RobotMap.ultrasonic2, RobotMap.ultrasonic2);
-	//Ultrasonic ultrasonic3 = new Ultrasonic(RobotMap.ultrasonic3, RobotMap.ultrasonic3);
+//	Ultrasonic FrontUltrasonic = new Ultrasonic(RobotMap.frontUltrasonic, RobotMap.frontUltrasonic);
+//	Ultrasonic LeftUltrasonic = new Ultrasonic(RobotMap.leftUltrasonic, RobotMap.leftUltrasonic);
+//	Ultrasonic RightUltrasonic = new Ultrasonic(RobotMap.rightUltrasonic, RobotMap.rightUltrasonic);
 
 	
 	SpeedControllerGroup left = new SpeedControllerGroup(leftMotor1, leftMotor2);
@@ -42,9 +42,9 @@ public class DriveBase extends HHSensorDrive {
 		setxHighSpeed(.8);
 		setyHighSpeed(.8);
 		setzHighSpeed(.8);
-		//ultrasonic1.setAutomaticMode(true);
-		//ultrasonic2.setAutomaticMode(true);
-		//ultrasonic3.setAutomaticMode(true);
+		//FrontUltrasonic.setAutomaticMode(true);
+		//LeftUltrasonic.setAutomaticMode(true);
+		//RightUltrasonic.setAutomaticMode(true);
 	}
 
 	@Override
@@ -77,16 +77,16 @@ public class DriveBase extends HHSensorDrive {
 		return gyro.getAngle() % 360;
 	}
 	
-//	public double getUltrasonic1() {
-//		return ultrasonic1.getRangeInches();
+//	public double getFrontUltrasonic() {
+//		return FrontUltrasonic.getRangeInches();
 //	}
 //	
-//	public double getUltrasonic2() {
-//		return ultrasonic2.getRangeInches();
+//	public double getLeftUltrasonic() {
+//		return LeftUltrasonic.getRangeInches();
 //	}
 //	
-//	public double getUltrasonic3() {
-//		return ultrasonic3.getRangeInches();
+//	public double getRightUltrasonic() {
+//		return RightUltrasonic.getRangeInches();
 //	}
 	
 	@Override

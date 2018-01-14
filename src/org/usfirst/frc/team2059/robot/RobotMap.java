@@ -31,9 +31,9 @@ public class RobotMap {
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
-	public static int ultrasonic1 = 2;
-	public static int ultrasonic2 = 3;
-	public static int ultrasonic3 = 4;
+	public static int frontUltrasonic = 2;
+	public static int leftUltrasonic = 3;
+	public static int rightUltrasonic = 4;
 	
 	public static double Pconstant = 1;
 	public static double Iconstant = 1;
