@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveBase extends HHSensorDrive {
-
+	
 	Spark leftMotor1  = new Spark(RobotMap.LeftMotor1);
 	Spark leftMotor2 = new Spark(RobotMap.LeftMotor2);
 	Spark rightMotor1 = new Spark(RobotMap.RightMotor1);
