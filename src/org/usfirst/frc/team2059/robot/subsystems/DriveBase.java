@@ -4,19 +4,18 @@ import hhCore.drive.HHSensorDrive;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.Drive;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveBase extends HHSensorDrive {
 	
-	Spark leftMotor1  = new Spark(RobotMap.LeftMotor1);
-	Spark leftMotor2 = new Spark(RobotMap.LeftMotor2);
-	Spark rightMotor1 = new Spark(RobotMap.RightMotor1);
-	Spark rightMotor2 = new Spark(RobotMap.RightMotor2);
+	WPI_VictorSPX leftMotor1  = new WPI_VictorSPX(RobotMap.LeftMotor1);
+	WPI_VictorSPX leftMotor2 = new WPI_VictorSPX(RobotMap.LeftMotor2);
+	WPI_VictorSPX rightMotor1 = new WPI_VictorSPX(RobotMap.RightMotor1);
+	WPI_VictorSPX rightMotor2 = new WPI_VictorSPX(RobotMap.RightMotor2);
 	
 	Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
 	Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
@@ -74,9 +73,10 @@ public class DriveBase extends HHSensorDrive {
 	protected void initDefaultCommand() {
 		setDefaultCommand(new Drive());
 	}
-
+	
 	@Override
 	public void driveBase(double x, double y) {
 		robotDrive.arcadeDrive(y, x);
 	}
+	
 }
