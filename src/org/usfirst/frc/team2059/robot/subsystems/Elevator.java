@@ -6,23 +6,30 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
+import hhCore.sensors.ElevatorEncoder;
+
 
 public class Elevator {
 	WPI_VictorSPX elevatorMotor1 = new WPI_VictorSPX(RobotMap.elevatorMotor1);
 	WPI_VictorSPX elevatorMotor2 = new WPI_VictorSPX(RobotMap.elevatorMotor2);
 	
-	//DigitalInput hallEffect1 = new DigitalInput(RobotMap.hallEffect1);
-	//DigitalInput hallEffect2 = new DigitalInput(RobotMap.hallEffect2);
+	DigitalInput hallEffect1 = new DigitalInput(RobotMap.hallEffect1);
+	DigitalInput hallEffect2 = new DigitalInput(RobotMap.hallEffect2);
 	
-	Encoder elevatorEncoder = new Encoder(RobotMap.elevatorEncoder1, RobotMap.elevatorEncoder2);
+	ElevatorEncoder elevatorEncoder = new ElevatorEncoder(RobotMap.elevatorEncoder1, RobotMap.elevatorEncoder2);
 	
 	public void elevate(double s) {
 		elevatorMotor1.set(s);
 		elevatorMotor2.set(-s);
 		
-		//if(hallEffect1.get() == true) {
-		//	
-		//}
+		if(hallEffect1.get() == true) {
+			elevatorEncoder.reset();
+			
+		}
+		
+		if(hallEffect2.get() == true) {
+			
+		}
 	}
 	
 	public void elevateEnd() {
