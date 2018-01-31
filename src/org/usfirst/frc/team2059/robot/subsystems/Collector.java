@@ -2,14 +2,14 @@ package org.usfirst.frc.team2059.robot.subsystems;
 
 import org.usfirst.frc.team2059.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Spark;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Collector extends Subsystem {
 
-	Spark collectorMotor1 = new Spark(RobotMap.collectorMotor1);
-	Spark collectorMotor2 = new Spark(RobotMap.collectorMotor2);
+	WPI_VictorSPX collectorMotor1 = new WPI_VictorSPX(RobotMap.collectorMotor1);
+	WPI_VictorSPX collectorMotor2 = new WPI_VictorSPX(RobotMap.collectorMotor2);
 	
 	public void Collect(double s) {
 		collectorMotor1.set(s);
