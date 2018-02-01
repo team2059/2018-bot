@@ -7,7 +7,6 @@
 
 package org.usfirst.frc.team2059.robot;
 
-import org.usfirst.frc.team2059.robot.commands.Eject;
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
 //import org.usfirst.frc.team2059.robot.commands.SetRampState;

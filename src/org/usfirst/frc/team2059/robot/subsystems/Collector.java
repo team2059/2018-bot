@@ -12,7 +12,7 @@ public class Collector extends Subsystem {
 	
 	public void Collect(double s) {
 		collectorMotor1.set(s);
-		collectorMotor2.set(-s*.8);
+		collectorMotor2.set(-s);
 	}
 	
 	public void CollectEnd() {
