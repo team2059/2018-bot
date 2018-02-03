@@ -41,6 +41,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		CommandBase.init();
+	
 		
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();	
@@ -51,7 +52,8 @@ public class Robot extends IterativeRobot {
 		m_chooser.addObject("Default", null);
 		m_chooser.addObject("Drive Straight", new PIDDrive(130));
 		SmartDashboard.putData("Auto mode", m_chooser);
-	}
+		//SmartDashboard.putNumber("Encoder Value", CommandBase.driveBase.getLeftEncoder());
+ 	}
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
