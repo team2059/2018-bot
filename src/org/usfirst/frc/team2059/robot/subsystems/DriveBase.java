@@ -55,12 +55,12 @@ public class DriveBase extends HHSensorDrive {
 
 	@Override
 	public double getLeftEncoder() {
-		return leftEncoder.get();
+		return leftEncoder.get() / 6.88;
 	}
 
 	@Override
 	public double getRightEncoder() {
-		return rightEncoder.get();
+		return -rightEncoder.get() / 6.88;
 	}
 
 	@Override

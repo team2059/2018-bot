@@ -10,30 +10,27 @@ import hhCore.sensors.ElevatorEncoder;
 
 
 public class Elevator {
-	WPI_VictorSPX elevatorMotor1 = new WPI_VictorSPX(RobotMap.elevatorMotor1);
-	WPI_VictorSPX elevatorMotor2 = new WPI_VictorSPX(RobotMap.elevatorMotor2);
+	WPI_VictorSPX elevatorMotor = new WPI_VictorSPX(RobotMap.elevatorMotor1);
 	
-	DigitalInput hallEffect1 = new DigitalInput(RobotMap.hallEffect1);
-	DigitalInput hallEffect2 = new DigitalInput(RobotMap.hallEffect2);
+	//DigitalInput hallEffect1 = new DigitalInput(RobotMap.hallEffect1);
+	//DigitalInput hallEffect2 = new DigitalInput(RobotMap.hallEffect2);
 	
 	ElevatorEncoder elevatorEncoder = new ElevatorEncoder(RobotMap.elevatorEncoder1, RobotMap.elevatorEncoder2);
 	
 	public void elevate(double s) {
-		elevatorMotor1.set(s);
-		elevatorMotor2.set(-s);
+		elevatorMotor.set(s);
 		
-		if(hallEffect1.get() == true) {
-			elevatorEncoder.setPosition(12);
-		}
-		
-		if(hallEffect2.get() == true) {
-			elevatorEncoder.setPosition(48);
-		}
+//		if(hallEffect1.get() == true) {
+//			elevatorEncoder.setPosition(12);
+//		}
+//		
+//		if(hallEffect2.get() == true) {
+//			elevatorEncoder.setPosition(48);
+//		}
 	}
 	
 	public void elevateEnd() {
-		elevatorMotor1.set(0);
-		elevatorMotor2.set(0);
+		elevatorMotor.set(0);
 	}
 	
 	public Encoder elevatorEncoder() {

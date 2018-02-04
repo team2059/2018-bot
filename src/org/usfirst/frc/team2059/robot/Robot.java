@@ -52,7 +52,6 @@ public class Robot extends IterativeRobot {
 		m_chooser.addObject("Default", null);
 		m_chooser.addObject("Drive Straight", new PIDDrive(130));
 		SmartDashboard.putData("Auto mode", m_chooser);
-		//SmartDashboard.putNumber("Encoder Value", CommandBase.driveBase.getLeftEncoder());
  	}
 
 	/**
@@ -115,6 +114,9 @@ public class Robot extends IterativeRobot {
 		
 		//CommandBase.pneumatics.setCompressorEnabled(true);
 		
+		CommandBase.driveBase.resetLeftEncoder();
+		CommandBase.driveBase.resetRightEncoder();
+		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
@@ -126,6 +128,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		SmartDashboard.putNumber("Left Encoder Value", CommandBase.driveBase.getLeftEncoder());
+		SmartDashboard.putNumber("Right Encoder Value", CommandBase.driveBase.getRightEncoder());
 	}
 
 	/**
