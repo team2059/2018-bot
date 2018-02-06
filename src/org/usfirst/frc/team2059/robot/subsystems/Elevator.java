@@ -4,7 +4,6 @@ import org.usfirst.frc.team2059.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import hhCore.sensors.ElevatorEncoder;
 
@@ -37,7 +36,8 @@ public class Elevator {
 		return elevatorEncoder;
 	}
 
-	public double getElecatorEncoder() {
+	public double getElevatorEncoder() {
 		return elevatorEncoder.get();
 	}
+	
 }

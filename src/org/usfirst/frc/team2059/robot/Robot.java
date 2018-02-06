@@ -16,7 +16,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
-import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
+import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -50,7 +51,8 @@ public class Robot extends IterativeRobot {
 		
 		oi = new OI();
 		m_chooser.addObject("Default", null);
-		m_chooser.addObject("Drive Straight", new PIDDrive(130));
+		m_chooser.addObject("Left Auto", new LeftAuto());
+		m_chooser.addObject("Right Auto", new RightAuto());
 		SmartDashboard.putData("Auto mode", m_chooser);
  	}
 
@@ -116,6 +118,7 @@ public class Robot extends IterativeRobot {
 		
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
+		CommandBase.driveBase.resetGyro();
 		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
@@ -131,6 +134,7 @@ public class Robot extends IterativeRobot {
 		
 		SmartDashboard.putNumber("Left Encoder Value", CommandBase.driveBase.getLeftEncoder());
 		SmartDashboard.putNumber("Right Encoder Value", CommandBase.driveBase.getRightEncoder());
+		SmartDashboard.putNumber("Gyro Angle", CommandBase.driveBase.getGyro());
 	}
 
 	/**

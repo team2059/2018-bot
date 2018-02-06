@@ -5,8 +5,10 @@ import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.Drive;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import edu.wpi.first.wpilibj.AnalogGyro;
+
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -20,13 +22,16 @@ public class DriveBase extends HHSensorDrive {
 	Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
 	Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
 	
-	AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
+	//AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
+	
+	ADXRS450_Gyro gyro = new ADXRS450_Gyro(Port.kOnboardCS0);
 	
 	SpeedControllerGroup left = new SpeedControllerGroup(leftMotor1, leftMotor2);
 	SpeedControllerGroup right = new SpeedControllerGroup(rightMotor1, rightMotor2);
 
 	DifferentialDrive robotDrive = new DifferentialDrive(left, right);
-
+	
+	
 	public DriveBase() {
 		setCorrection(RobotMap.correction);
 		setDeadzone(RobotMap.deadzone);
@@ -36,10 +41,11 @@ public class DriveBase extends HHSensorDrive {
 		setxHighSpeed(.8);
 		setyHighSpeed(.8);
 		setzHighSpeed(.8);
+		gyro.calibrate();
 	}
 
 	@Override
-	public AnalogGyro gyro() {
+	public ADXRS450_Gyro gyro() {
 		return gyro;
 	}
 
@@ -68,7 +74,6 @@ public class DriveBase extends HHSensorDrive {
 		return gyro.getAngle() % 360;
 	}
 
-	
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new Drive());

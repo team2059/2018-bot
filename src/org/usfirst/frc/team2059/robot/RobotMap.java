@@ -25,9 +25,7 @@ public class RobotMap {
 	public static int leftEncoder2 = 1;
 	public static int rightEncoder1 = 2;
 	public static int rightEncoder2 = 3;
-	
-	public static int gyro = 1; 
-	
+		
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
@@ -44,6 +42,13 @@ public class RobotMap {
 	
 	public static int elevatorEncoder1 = 4;
 	public static int elevatorEncoder2 = 5;
+	
+	public static int ElevatorP = 1;
+	public static int ElevatorI = 0;
+	public static int ElevatorD = 0;
+	
+	public static int SwitchHeight = 20;
+	public static int ScaleHeight = 80;
 	
 	//Collector
 	public static int collectorMotor1 = 4;

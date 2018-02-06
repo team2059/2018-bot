@@ -24,8 +24,7 @@ public class Intake extends CommandBase {
 	
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return isTimedOut();
 	}
 
 }
