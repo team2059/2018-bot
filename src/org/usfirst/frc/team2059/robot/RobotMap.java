@@ -29,9 +29,13 @@ public class RobotMap {
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
-	public static double Pconstant = 1;
-	public static double Iconstant = 1;
-	public static double Dconstant = 1;
+	public static double pDriveTurn = 1.0;
+	public static double iDriveTurn = 0.0;
+	public static double dDriveTurn = 0.0;
+
+	public static double pDriveStraight = 1.0;
+	public static double iDriveStraight = 0.0;
+	public static double dDriveStraight = 0.0;
 	
 	//Collector
 	public static int collectorMotor1 = 4;
