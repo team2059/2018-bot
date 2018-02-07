@@ -54,6 +54,9 @@ public class RobotMap {
 	public static int SwitchHeight = 20;
 	public static int ScaleHeight = 80;
 	
+	//Ramps
+	public static int rampMotor = 8;
+	
 	//Vision
 	public static int camera = 0;
 	
