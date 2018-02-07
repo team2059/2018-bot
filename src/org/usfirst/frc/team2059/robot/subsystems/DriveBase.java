@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
-import hhCore.drive.HHSensorDrive;
+import hhCore.subsystems.drive.HHSensorDrive;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.Drive;
 

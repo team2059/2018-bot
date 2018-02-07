@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2059.robot.commands.Drivetrain;
 
 import hhCore.commands.drive.HHPIDDriveStraight;
-import hhCore.drive.HHSensorDrive;
+import hhCore.subsystems.drive.HHSensorDrive;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 
