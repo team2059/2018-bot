@@ -3,7 +3,9 @@ package org.usfirst.frc.team2059.robot.subsystems;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-public class Ramp {
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+public class Ramp extends Subsystem{
 
 	WPI_VictorSPX rampMotor = new WPI_VictorSPX(RobotMap.rampMotor);
 	
@@ -15,6 +17,7 @@ public class Ramp {
 		rampMotor.set(0);
 	}
 	
+	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
 	}
