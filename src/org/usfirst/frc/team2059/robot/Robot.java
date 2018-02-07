@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
 
@@ -53,6 +54,7 @@ public class Robot extends IterativeRobot {
 		m_chooser.addObject("Default", null);
 		m_chooser.addObject("Left Auto", new LeftAuto());
 		m_chooser.addObject("Right Auto", new RightAuto());
+		m_chooser.addObject("Center Auto", new CenterAuto());
 		SmartDashboard.putData("Auto mode", m_chooser);
  	}
 

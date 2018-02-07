@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class RightAuto extends CommandGroup{
 	
-public RightAuto() {
+	public RightAuto() {
 		
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();

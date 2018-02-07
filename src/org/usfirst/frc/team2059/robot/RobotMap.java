@@ -32,7 +32,11 @@ public class RobotMap {
 	public static double Pconstant = 1;
 	public static double Iconstant = 1;
 	public static double Dconstant = 1;
-
+	
+	//Collector
+	public static int collectorMotor1 = 4;
+	public static int collectorMotor2 = 5;
+	
 	//Elevator
 	public static int elevatorMotor1 = 6;
 	public static int elevatorMotor2 = 7;
@@ -49,10 +53,6 @@ public class RobotMap {
 	
 	public static int SwitchHeight = 20;
 	public static int ScaleHeight = 80;
-	
-	//Collector
-	public static int collectorMotor1 = 4;
-	public static int collectorMotor2 = 5;
 	
 	//Vision
 	public static int camera = 0;
