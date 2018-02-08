@@ -137,6 +137,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Left Encoder Value", CommandBase.driveBase.getLeftEncoder());
 		SmartDashboard.putNumber("Right Encoder Value", CommandBase.driveBase.getRightEncoder());
 		SmartDashboard.putNumber("Gyro Angle", CommandBase.driveBase.getGyro());
+		SmartDashboard.putBoolean("Hall Effect 1", CommandBase.elevator.getHallEffect1());
+		SmartDashboard.putBoolean("Hall Effect 2", CommandBase.elevator.getHallEffect2());
 	}
 
 	/**
