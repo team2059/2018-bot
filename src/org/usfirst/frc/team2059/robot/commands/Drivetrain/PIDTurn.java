@@ -7,7 +7,7 @@ import org.usfirst.frc.team2059.robot.commands.CommandBase;
 
 public class PIDTurn extends HHPIDDriveTurn {
 
-	PIDTurn(double angle) {
+	public PIDTurn(double angle) {
 		super(angle, RobotMap.pDriveTurn, RobotMap.iDriveTurn, RobotMap.dDriveTurn);
 	}
 
