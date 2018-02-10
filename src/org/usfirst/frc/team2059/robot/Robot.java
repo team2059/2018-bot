@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 
 	/**
 	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
+	 * used for any initialgization code.
 	 */
 	@Override
 	public void robotInit() {
@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
 		camera = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera);
 		
 		oi = new OI();
-		m_chooser.addObject("Default", null);
+		m_chooser.addDefault("Default", null);
 		m_chooser.addObject("Left Auto", new LeftAuto());
 		m_chooser.addObject("Right Auto", new RightAuto());
 		m_chooser.addObject("Center Auto", new CenterAuto());
@@ -121,6 +121,7 @@ public class Robot extends IterativeRobot {
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
 		CommandBase.driveBase.resetGyro();
+		CommandBase.elevator.resetElevatorEncoder();
 		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
@@ -137,8 +138,9 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Left Encoder Value", CommandBase.driveBase.getLeftEncoder());
 		SmartDashboard.putNumber("Right Encoder Value", CommandBase.driveBase.getRightEncoder());
 		SmartDashboard.putNumber("Gyro Angle", CommandBase.driveBase.getGyro());
-		SmartDashboard.putBoolean("Hall Effect 1", CommandBase.elevator.getHallEffect1());
-		SmartDashboard.putBoolean("Hall Effect 2", CommandBase.elevator.getHallEffect2());
+		//SmartDashboard.putBoolean("Hall Effect 1", CommandBase.elevator.getHallEffect1());
+		//SmartDashboard.putBoolean("Hall Effect 2", CommandBase.elevator.getHallEffect2());
+		SmartDashboard.putNumber("Elevator Encoder Value", CommandBase.elevator.getElevatorEncoder());
 	}
 
 	/**

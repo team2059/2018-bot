@@ -12,16 +12,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class CenterAuto extends CommandGroup{
 	
 	public CenterAuto() {
-		
-		
-		addParallel(new Elevate(RobotMap.SwitchHeight));
-		addSequential(new PIDDrive(30));
-	
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		
+		addParallel(new Elevate(RobotMap.SwitchHeight));
+		addSequential(new PIDDrive(30));
+		
 		if (gameData.charAt(0) == 'L') {
-			addSequential(new PIDTurn(-90));
+			addSequential(new PIDTurn(270));
 		}
 		else if (gameData.charAt(0) == 'R') {
 			addSequential(new PIDTurn(90));
