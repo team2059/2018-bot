@@ -51,7 +51,7 @@ public class OI {
 		button1.whileHeld(new Intake(-1));
 		button2.whileHeld(new Intake(1));
 		button5.whileHeld(new RampDown(1));
-		//button5.whileHeld(new SetRampState(true));
+		//button6.whileHeld(new SetRampState(true));
 	}
 	
 	// There are a few additional built in buttons you can use. Additionally,
