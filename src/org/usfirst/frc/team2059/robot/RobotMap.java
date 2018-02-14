@@ -67,8 +67,8 @@ public class RobotMap {
 	//Pneumatics
 	public static int compressor = 42;
 	
-	public static int LeftRamp1 = 1;
-	public static int LeftRamp2 = 2;
-	public static int RightRamp1 = 3;
-	public static int RightRamp2 = 4;
+	public static int LeftRamp1 = 0;
+	public static int LeftRamp2 = 1;
+	public static int RightRamp1 = 2;
+	public static int RightRamp2 = 3;
 }
