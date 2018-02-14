@@ -21,6 +21,7 @@ public class Pneumatics extends Subsystem {
 	
 	public void setCompressorEnabled(boolean state) {
 		compressor.setClosedLoopControl(state);
+		compressor.start();
 	}
 	
 	public void setLeftRampState(boolean state) {

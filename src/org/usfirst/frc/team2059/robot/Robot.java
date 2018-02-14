@@ -50,6 +50,8 @@ public class Robot extends IterativeRobot {
 		
 		camera = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera);
 		
+		CommandBase.pneumatics.setCompressorEnabled(true);
+		
 		oi = new OI();
 		m_chooser.addDefault("Default", null);
 		m_chooser.addObject("Left Auto", new LeftAuto());
@@ -115,9 +117,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		
-		//CommandBase.pneumatics.setCompressorEnabled(true);
-		
+				
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
 		CommandBase.driveBase.resetGyro();
@@ -141,6 +141,7 @@ public class Robot extends IterativeRobot {
 		//SmartDashboard.putBoolean("Hall Effect 1", CommandBase.elevator.getHallEffect1());
 		//SmartDashboard.putBoolean("Hall Effect 2", CommandBase.elevator.getHallEffect2());
 		SmartDashboard.putNumber("Elevator Encoder Value", CommandBase.elevator.getElevatorEncoder());
+		SmartDashboard.putBoolean("Compressor", CommandBase.pneumatics.getCompressorEnabled());
 	}
 
 	/**

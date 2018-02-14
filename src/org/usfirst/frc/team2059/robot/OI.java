@@ -9,7 +9,7 @@ package org.usfirst.frc.team2059.robot;
 
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
-//import org.usfirst.frc.team2059.robot.commands.SetRampState;
+import org.usfirst.frc.team2059.robot.commands.SetRampState;
 import org.usfirst.frc.team2059.robot.commands.RampDown;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -51,7 +51,7 @@ public class OI {
 		button1.whileHeld(new Intake(-1));
 		button2.whileHeld(new Intake(1));
 		button5.whileHeld(new RampDown(1));
-		//button6.whileHeld(new SetRampState(true));
+		button6.whileHeld(new SetRampState(true));
 	}
 	
 	// There are a few additional built in buttons you can use. Additionally,
