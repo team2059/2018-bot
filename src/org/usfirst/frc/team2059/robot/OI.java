@@ -10,6 +10,8 @@ package org.usfirst.frc.team2059.robot;
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
 import org.usfirst.frc.team2059.robot.commands.SetRampState;
+import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
+import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDTurn;
 import org.usfirst.frc.team2059.robot.commands.RampDown;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -31,14 +33,16 @@ public class OI {
 	private static Joystick driveJoystick = new Joystick(0);
 	private static Joystick auxJoystick = new Joystick(1);
 	
-	JoystickButton button1 = new JoystickButton(driveJoystick, 1);
-	JoystickButton button2 = new JoystickButton(driveJoystick, 2);
-	JoystickButton button3 = new JoystickButton(driveJoystick, 3);
-	JoystickButton button4 = new JoystickButton(driveJoystick, 4);
-	JoystickButton button5 = new JoystickButton(driveJoystick, 5);
-	JoystickButton button6 = new JoystickButton(driveJoystick, 6);
-	JoystickButton button7 = new JoystickButton(driveJoystick, 7);
-	JoystickButton button8 = new JoystickButton(driveJoystick, 8);
+	JoystickButton button1 = new JoystickButton(auxJoystick, 1);
+	JoystickButton button2 = new JoystickButton(auxJoystick, 2);
+	JoystickButton button3 = new JoystickButton(auxJoystick, 3);
+	JoystickButton button4 = new JoystickButton(auxJoystick, 4);
+	JoystickButton button5 = new JoystickButton(auxJoystick, 5);
+	JoystickButton button6 = new JoystickButton(auxJoystick, 6);
+	JoystickButton button7 = new JoystickButton(auxJoystick, 7);
+	JoystickButton button8 = new JoystickButton(auxJoystick, 8);
+	
+	JoystickButton button1a = new JoystickButton(driveJoystick, 1);
 	
 	public static Joystick getDriveJoystick() {
 		return driveJoystick;
@@ -48,11 +52,15 @@ public class OI {
 	public OI() {
 		button3.whileHeld(new Elevate(1));
 		button4.whileHeld(new Elevate(-1));
-		button1.whileHeld(new Intake(-1));
+		button5.whileHeld(new Elevate(.5));
+		button6.whileHeld(new Elevate(-.5));
+		button1.whileHeld(new Intake(-.7));
 		button2.whileHeld(new Intake(1));
-		button5.whileHeld(new RampDown(1));
-		button6.whileHeld(new SetRampState(true));
-		
+		button7.whenPressed(new SetRampState(false));
+		button8.whenPressed(new SetRampState(true));
+		button7.toggleWhenPressed(new SetRampState(true));
+	
+		button1a.whenPressed(new PIDDrive(48));
 	}
 	
 	// There are a few additional built in buttons you can use. Additionally,

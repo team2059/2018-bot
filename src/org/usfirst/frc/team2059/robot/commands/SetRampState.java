@@ -25,7 +25,7 @@ public class SetRampState extends CommandBase{
 	}
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return true;
 	}
 
 }

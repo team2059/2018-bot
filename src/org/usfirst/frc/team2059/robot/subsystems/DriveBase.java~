@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
-import hhCore.subsystems.drive.HHSensorDrive;
+import hhCore.drive.HHSensorDrive;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.Drive;
 
@@ -76,7 +76,7 @@ public class DriveBase extends HHSensorDrive {
 
 	@Override
 	protected void initDefaultCommand() {
-		//setDefaultCommand(new Drive());
+		setDefaultCommand(new Drive());
 	}
 	
 	@Override
