@@ -11,8 +11,6 @@ import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
 import org.usfirst.frc.team2059.robot.commands.SetRampState;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
-import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDTurn;
-import org.usfirst.frc.team2059.robot.commands.RampDown;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -42,7 +40,6 @@ public class OI {
 	JoystickButton button7 = new JoystickButton(auxJoystick, 7);
 	JoystickButton button8 = new JoystickButton(auxJoystick, 8);
 	
-	JoystickButton button1a = new JoystickButton(driveJoystick, 1);
 	
 	public static Joystick getDriveJoystick() {
 		return driveJoystick;
@@ -56,11 +53,9 @@ public class OI {
 		button6.whileHeld(new Elevate(-.5));
 		button1.whileHeld(new Intake(-.7));
 		button2.whileHeld(new Intake(1));
-		button7.whenPressed(new SetRampState(false));
-		button8.whenPressed(new SetRampState(true));
-		button7.toggleWhenPressed(new SetRampState(true));
-	
-		button1a.whenPressed(new PIDDrive(48));
+		button7.whileHeld(new SetRampState(true));
+		button8.whileHeld(new SetRampState(false));
+		
 	}
 	
 	// There are a few additional built in buttons you can use. Additionally,

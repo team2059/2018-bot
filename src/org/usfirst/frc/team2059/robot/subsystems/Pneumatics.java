@@ -13,6 +13,7 @@ public class Pneumatics extends Subsystem {
 	Compressor compressor = new Compressor(RobotMap.compressor);
 	DoubleSolenoid leftRamp = new DoubleSolenoid(RobotMap.compressor, RobotMap.LeftRamp1, RobotMap.LeftRamp2);
 	DoubleSolenoid rightRamp = new DoubleSolenoid(RobotMap.compressor, RobotMap.RightRamp1, RobotMap.RightRamp2);
+	Relay spike = new Relay(RobotMap.spike);
 	
 	boolean leftState, rightState;
 	
@@ -21,10 +22,16 @@ public class Pneumatics extends Subsystem {
 	}
 	
 	public void setCompressorEnabled(boolean state) {
+		spike.set(Relay.Value.kForward);
 		compressor.setClosedLoopControl(state);
 		compressor.start();
-		
-    }
+
+		if (compressor.getPressureSwitchValue() == true) {
+			
+		} else {
+			spike.set(Relay.Value.kOff);
+		}
+	}
 	
 	public void setLeftRampState(boolean state) {
 		HHPneumatics.enableSolenoid(state, leftRamp);
@@ -32,6 +39,10 @@ public class Pneumatics extends Subsystem {
 	
 	public void setRightRampState(boolean state) {
 		HHPneumatics.enableSolenoid(state, rightRamp);
+	}
+	
+	public void setSpikeOff() {
+		spike.set(Relay.Value.kOff);
 	}
 	
 	public boolean getLeftRampState() {

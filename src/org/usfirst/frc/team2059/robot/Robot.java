@@ -124,7 +124,7 @@ public class Robot extends IterativeRobot {
 				
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
-		CommandBase.driveBase.resetGyro();
+		//CommandBase.driveBase.resetGyro();
 		CommandBase.elevator.resetElevatorEncoder();
 		
 		if (m_autonomousCommand != null) {
