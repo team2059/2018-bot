@@ -4,6 +4,7 @@ import org.usfirst.frc.team2059.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import hhCore.pneumatics.HHPneumatics;
 
@@ -22,7 +23,8 @@ public class Pneumatics extends Subsystem {
 	public void setCompressorEnabled(boolean state) {
 		compressor.setClosedLoopControl(state);
 		compressor.start();
-	}
+		
+    }
 	
 	public void setLeftRampState(boolean state) {
 		HHPneumatics.enableSolenoid(state, leftRamp);
