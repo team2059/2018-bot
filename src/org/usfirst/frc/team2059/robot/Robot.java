@@ -33,8 +33,8 @@ public class Robot extends IterativeRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	
-	public static UsbCamera camera;
 	public static UsbCamera camera1;
+	public static UsbCamera camera2;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -44,15 +44,14 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		CommandBase.init();
-	
 		
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();	
 		
-		camera = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera);
-		camera.setBrightness(50);
-		camera1 = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera);
+		camera1 = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera1);
 		camera1.setBrightness(50);
+		camera2 = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera2);
+		camera2.setBrightness(50);
 
 		CommandBase.pneumatics.setCompressorEnabled(true);
 		
@@ -124,8 +123,8 @@ public class Robot extends IterativeRobot {
 				
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
-		//CommandBase.driveBase.resetGyro();
-		CommandBase.elevator.resetElevatorEncoder();
+		CommandBase.driveBase.resetGyro();
+		//CommandBase.elevator.resetElevatorEncoder();
 		
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();

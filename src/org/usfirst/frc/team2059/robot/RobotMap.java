@@ -62,7 +62,8 @@ public class RobotMap {
 	public static int rampMotor = 8;
 	
 	//Vision
-	public static int camera = 0;
+	public static int camera1 = 0;
+	public static int camera2 = 1;
 	
 	//Pneumatics
 	public static int compressor = 42;

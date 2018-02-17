@@ -22,15 +22,15 @@ public class Pneumatics extends Subsystem {
 	}
 	
 	public void setCompressorEnabled(boolean state) {
-		spike.set(Relay.Value.kForward);
+//		spike.set(Relay.Value.kForward);
 		compressor.setClosedLoopControl(state);
 		compressor.start();
 
-		if (compressor.getPressureSwitchValue() == true) {
-			
-		} else {
-			spike.set(Relay.Value.kOff);
-		}
+//		if (compressor.getPressureSwitchValue() == true) {
+//			
+//		} else {
+//			spike.set(Relay.Value.kOff);
+//		}
 	}
 	
 	public void setLeftRampState(boolean state) {
@@ -39,10 +39,6 @@ public class Pneumatics extends Subsystem {
 	
 	public void setRightRampState(boolean state) {
 		HHPneumatics.enableSolenoid(state, rightRamp);
-	}
-	
-	public void setSpikeOff() {
-		spike.set(Relay.Value.kOff);
 	}
 	
 	public boolean getLeftRampState() {
