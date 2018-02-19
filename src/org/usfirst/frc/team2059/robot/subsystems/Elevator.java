@@ -20,7 +20,11 @@ public class Elevator extends Subsystem{
 	//ElevatorEncoder elevatorEncoder = new ElevatorEncoder(RobotMap.elevatorEncoder1, RobotMap.elevatorEncoder2);
 	
 	public void elevate(double s) {
-		elevatorMotor.set(ControlMode.PercentOutput, s);
+		if (getHallEffectBottom() == true && s > 0) {
+			elevatorMotor.set(ControlMode.PercentOutput, 0);
+		} else {
+			elevatorMotor.set(ControlMode.PercentOutput, s);
+		}
 	}
 	
 	public void elevateEnd() {
