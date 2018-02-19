@@ -45,8 +45,8 @@ public class RobotMap {
 	public static int elevatorMotor1 = 6;
 	public static int elevatorMotor2 = 7;
 	
-	public static int hallEffect1 = 1;
-	public static int hallEffect2 = 2;
+	public static int hallEffect1 = 4;
+	public static int hallEffect2 = 5;
 	
 	public static int elevatorEncoder1 = 4;
 	public static int elevatorEncoder2 = 5;
