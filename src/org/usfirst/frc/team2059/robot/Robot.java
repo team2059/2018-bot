@@ -48,9 +48,9 @@ public class Robot extends IterativeRobot {
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();	
 		
-		camera1 = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera1);
+		camera1 = CameraServer.getInstance().startAutomaticCapture("Camera1", RobotMap.camera1);
 		camera1.setBrightness(50);
-		camera2 = CameraServer.getInstance().startAutomaticCapture("Camera", RobotMap.camera2);
+		camera2 = CameraServer.getInstance().startAutomaticCapture("Camera2", RobotMap.camera2);
 		camera2.setBrightness(50);
 
 		CommandBase.pneumatics.setCompressorEnabled(true);

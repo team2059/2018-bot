@@ -50,8 +50,8 @@ public class OI {
 		button4.whileHeld(new Elevate(-1.0));
 		button5.whileHeld(new Elevate(0.5));
 		button6.whileHeld(new Elevate(-0.5));
-		button1.whileHeld(new Intake(-0.7));
-		button2.whileHeld(new Intake(1.0));
+		button1.whileHeld(new Intake(0.7));
+		button2.whileHeld(new Intake(-1.0));
 		button7.whileHeld(new SetRampState(true));
 		button8.whileHeld(new SetRampState(false));
 		

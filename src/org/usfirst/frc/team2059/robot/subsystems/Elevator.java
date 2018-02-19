@@ -1,14 +1,16 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
 import org.usfirst.frc.team2059.robot.RobotMap;
+import org.usfirst.frc.team2059.robot.commands.LimitSwitch;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 
-public class Elevator {
+public class Elevator extends Subsystem{
 	//WPI_VictorSPX elevatorMotor = new WPI_VictorSPX(RobotMap.elevatorMotor1);
 	TalonSRX elevatorMotor = new TalonSRX(RobotMap.elevatorMotor1);
 	
@@ -19,13 +21,6 @@ public class Elevator {
 	
 	public void elevate(double s) {
 		elevatorMotor.set(ControlMode.PercentOutput, s);
-		if(hallEffectBottom.get()) {
-			setElevatorEncoder(0);
-		}
-
-//		if(hallEffect2.get() == true) {
-//			setElevatorEncoder(48);
-//		}
 	}
 	
 	public void elevateEnd() {
@@ -45,7 +40,7 @@ public class Elevator {
 	}
 	
 	public void setElevatorEncoder(int d) {
-		elevatorMotor.setSelectedSensorPosition(d, 0, 100);
+		elevatorMotor.setSelectedSensorPosition(d, 0, 0);
 	}
 	
 	public boolean getHallEffectBottom() {
@@ -55,5 +50,10 @@ public class Elevator {
 //	public boolean getHallEffect2() {
 //		return hallEffect2.get();
 //	}
+	
+	@Override
+	protected void initDefaultCommand() {
+		setDefaultCommand(new LimitSwitch());
+	}
 	
 }
