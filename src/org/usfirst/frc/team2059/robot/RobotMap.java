@@ -72,6 +72,11 @@ public class RobotMap {
 	
 	public static int LeftRamp1 = 0;
 	public static int LeftRamp2 = 1;
-	public static int RightRamp1 = 2;
-	public static int RightRamp2 = 3;
+	public static int LeftRamp3 = 2;
+	public static int LeftRamp4 = 3;
+
+	public static int RightRamp1 = 4;
+	public static int RightRamp2 = 5;
+	public static int RightRamp3 = 6;
+	public static int RightRamp4 = 7;
 }

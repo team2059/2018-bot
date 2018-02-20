@@ -1,9 +1,9 @@
 package org.usfirst.frc.team2059.robot.commands;
 
-public class SetRampState extends CommandBase{
+public class SetRightRampState extends CommandBase{
 
 	boolean state;
-	public SetRampState(boolean s) {
+	public SetRightRampState(boolean s) {
 		state = s;
 	}
 	
@@ -12,12 +12,10 @@ public class SetRampState extends CommandBase{
 	
 	protected void execute() {
 		pneumatics.setRightRampState(state);
-		pneumatics.setLeftRampState(state);
 	}
 	
 	protected void end() {
 		pneumatics.setRightRampState(!state);
-		pneumatics.setLeftRampState(!state);
 	}
 	
 	protected void interrupted() {
@@ -27,5 +25,4 @@ public class SetRampState extends CommandBase{
 	protected boolean isFinished() {
 		return true;
 	}
-
 }
