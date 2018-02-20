@@ -28,7 +28,7 @@ public class CenterAuto extends CommandGroup{
 		addSequential(new PIDDrive(20));
 		addSequential(new PIDTurn(0));
 		addSequential(new PIDDrive(20));
-		addSequential(new Intake(-1));
+		//addSequential(new Intake(-1));
 	}
 
 }

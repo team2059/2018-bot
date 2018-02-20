@@ -3,17 +3,20 @@ package org.usfirst.frc.team2059.robot.commands;
 import org.usfirst.frc.team2059.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class PIDElevate extends PIDCommand{
 
 	public PIDElevate(double inches) {
 		super(RobotMap.ElevatorP, RobotMap.ElevatorI, RobotMap.ElevatorD);
 		
-		setTimeout(inches/12);
+		setTimeout(inches*2000);
 		setSetpoint(inches); 
+		System.out.println(inches);
 	}
 	
 	protected void initialize() {
+		System.out.println("Started");
 	}
 	
 	@Override
@@ -23,15 +26,18 @@ public class PIDElevate extends PIDCommand{
 
 	@Override
 	protected void usePIDOutput(double speed) {
-		CommandBase.elevator.elevate(20);;
+		CommandBase.elevator.elevate(-speed);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 1;
+		System.out.println(Math.abs(getSetpoint() - getPosition()));
+		
+		return Math.abs(getSetpoint() - getPosition()) < .1;
 	}
 	
 	protected void end() {
+		System.out.println("ended");
 		setTimeout(0);
 	}
 	

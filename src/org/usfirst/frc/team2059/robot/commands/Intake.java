@@ -1,17 +1,21 @@
 package org.usfirst.frc.team2059.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class Intake extends CommandBase {
 
-	double speed;
-	public Intake(double s) {
-		speed = s;
+	double speedL;
+	double speedR;
+	public Intake(double sL, double sR) {
+		speedL = sL;
+		speedR = sR;
 	}
 	
 	protected void initialize() {
 	}
 	
 	protected void execute() {
-		collector.Collect(speed);
+		collector.Collect(speedL, speedR);
 	}
 	
 	protected void end() {

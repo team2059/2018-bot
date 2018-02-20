@@ -15,7 +15,7 @@ public class Elevator extends Subsystem{
 	TalonSRX elevatorMotor = new TalonSRX(RobotMap.elevatorMotor1);
 	
 	DigitalInput hallEffectBottom = new DigitalInput(RobotMap.hallEffect1);
-//	DigitalInput hallEffect2 = new DigitalInput(RobotMap.hallEffect2);
+//	DigitalInput hallEffectTop = new DigitalInput(RobotMap.hallEffect2);
 	
 	//ElevatorEncoder elevatorEncoder = new ElevatorEncoder(RobotMap.elevatorEncoder1, RobotMap.elevatorEncoder2);
 	
@@ -25,6 +25,12 @@ public class Elevator extends Subsystem{
 		} else {
 			elevatorMotor.set(ControlMode.PercentOutput, s);
 		}
+		
+//		if (getHallEffectTop() == true && s < 0) {
+//			elevatorMotor.set(ControlMode.PercentOutput, 0);
+//		} else {
+//			elevatorMotor.set(ControlMode.PercentOutput, s);
+//		}
 	}
 	
 	public void elevateEnd() {
@@ -40,19 +46,19 @@ public class Elevator extends Subsystem{
 	//}
 
 	public double getElevatorEncoder() {
-		return elevatorMotor.getSelectedSensorPosition(0);
+		return elevatorMotor.getSelectedSensorPosition(0) / 40408.555;
 	}
 	
 	public void setElevatorEncoder(int d) {
-		elevatorMotor.setSelectedSensorPosition(d, 0, 0);
+		elevatorMotor.setSelectedSensorPosition( (int) (d/.000047472), 0, 0);
 	}
 	
 	public boolean getHallEffectBottom() {
 		return !hallEffectBottom.get();
 	}
-//	
-//	public boolean getHallEffect2() {
-//		return hallEffect2.get();
+	
+//	public boolean getHallEffectTop() {
+//		return hallEffectTop.get();
 //	}
 	
 	@Override

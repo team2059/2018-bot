@@ -9,10 +9,12 @@ package org.usfirst.frc.team2059.robot;
 
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
+import org.usfirst.frc.team2059.robot.commands.PIDElevate;
 import org.usfirst.frc.team2059.robot.commands.SetRampState;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -38,6 +40,8 @@ public class OI {
 	JoystickButton button6 = new JoystickButton(auxJoystick, 6);
 	JoystickButton button7 = new JoystickButton(auxJoystick, 7);
 	JoystickButton button8 = new JoystickButton(auxJoystick, 8);
+	JoystickButton button9 = new JoystickButton(auxJoystick, 9);
+	JoystickButton button11 = new JoystickButton(auxJoystick, 11);
 	
 	
 	public static Joystick getDriveJoystick() {
@@ -46,14 +50,19 @@ public class OI {
 	
 	
 	public OI() {
-		button3.whileHeld(new Elevate(1.0));
-		button4.whileHeld(new Elevate(-1.0));
+		button3.whileHeld(new Intake(1.0, 0.4));
+		button1.whileHeld(new Intake(-1, -1));
+		button4.whileHeld(new Intake(0.4, 1.0));
+		
 		button5.whileHeld(new Elevate(0.5));
 		button6.whileHeld(new Elevate(-0.5));
-		button1.whileHeld(new Intake(0.7));
-		button2.whileHeld(new Intake(-1.0));
+
 		button7.whileHeld(new SetRampState(true));
 		button8.whileHeld(new SetRampState(false));
+		
+		button9.whenPressed(new PIDElevate(20));
+		button2.whenPressed(new PIDElevate(0));
+		button11.whenPressed(new PIDElevate(40));
 		
 	}
 	

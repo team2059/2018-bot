@@ -129,6 +129,9 @@ public class Robot extends IterativeRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
+		
+		SmartDashboard.putNumber("CollectorRight", 0);
+		SmartDashboard.putNumber("CollectorLeft", 0);
 	}
 
 	/**

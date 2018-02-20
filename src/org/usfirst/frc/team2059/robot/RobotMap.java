@@ -41,6 +41,7 @@ public class RobotMap {
 	public static int collectorMotor1 = 4;
 	public static int collectorMotor2 = 5;
 	
+	
 	//Elevator
 	public static int elevatorMotor1 = 6;
 	public static int elevatorMotor2 = 7;
@@ -51,9 +52,9 @@ public class RobotMap {
 	public static int elevatorEncoder1 = 4;
 	public static int elevatorEncoder2 = 5;
 	
-	public static int ElevatorP = 1;
-	public static int ElevatorI = 0;
-	public static int ElevatorD = 0;
+	public static double ElevatorP = .2;
+	public static double ElevatorI = 0;
+	public static double ElevatorD = 0;
 	
 	public static int SwitchHeight = 20;
 	public static int ScaleHeight = 80;

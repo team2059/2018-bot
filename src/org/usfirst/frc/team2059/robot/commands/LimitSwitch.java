@@ -16,9 +16,12 @@ public class LimitSwitch extends CommandBase{
 	
 	@Override
 	public void execute() {
-		if(elevator.getHallEffectBottom()== true) {
+		if(elevator.getHallEffectBottom() == true) {
 			elevator.setElevatorEncoder(0);
 		}
+//		if(elevator.getHallEffectTop() == true) {
+//			elevator.setElevatorEncoder(75);
+//		}
 	}
 
 }

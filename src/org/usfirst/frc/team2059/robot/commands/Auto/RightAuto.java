@@ -21,14 +21,14 @@ public class RightAuto extends CommandGroup{
 			addParallel(new PIDElevate(RobotMap.SwitchHeight));
 			addSequential(new PIDDrive(60));
 			addSequential(new PIDTurn(270));
-			addSequential(new Intake(-1), 1000);
+			//addSequential(new Intake(-1), 1000);
 			
 		} else if (!gameData.equals("") && gameData.charAt(1) == 'R') {
 			//Put scale auto code here
 			addParallel(new PIDElevate(RobotMap.ScaleHeight));
 			addSequential(new PIDDrive(96));
 			addSequential(new PIDTurn(270));
-			addSequential(new Intake(-1), 1000);
+			//addSequential(new Intake(-1), 1000);
 		} else {
 			addSequential(new PIDDrive(60));
 		}
