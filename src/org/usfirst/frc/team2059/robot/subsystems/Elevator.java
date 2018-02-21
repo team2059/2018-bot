@@ -24,7 +24,6 @@ public class Elevator extends Subsystem{
 		if (getHallEffectBottom() == true && s < 0) {
 			elevatorMotor.set(ControlMode.PercentOutput, 0);
 		} else if (getHallEffectTop() == true && s > 0) {
-			
 			elevatorMotor.set(ControlMode.PercentOutput, 0);
 		}
 		else {
