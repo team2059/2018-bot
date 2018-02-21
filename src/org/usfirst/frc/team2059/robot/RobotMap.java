@@ -29,13 +29,13 @@ public class RobotMap {
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
-	public static double pDriveTurn = .0;
+	public static double pDriveTurn = 0.052;
 	public static double iDriveTurn = 0.0;
-	public static double dDriveTurn = 0.0;
+	public static double dDriveTurn = 0.072;
 
-	public static double pDriveStraight = .1;
+	public static double pDriveStraight = 0.051;
 	public static double iDriveStraight = 0.0;
-	public static double dDriveStraight = .05;
+	public static double dDriveStraight = 0.072;
 	
 	//Collector
 	public static int collectorMotor1 = 4;

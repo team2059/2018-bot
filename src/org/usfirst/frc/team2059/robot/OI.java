@@ -10,7 +10,11 @@ package org.usfirst.frc.team2059.robot;
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
 import org.usfirst.frc.team2059.robot.commands.PIDElevate;
+import org.usfirst.frc.team2059.robot.commands.RampDown;
 import org.usfirst.frc.team2059.robot.commands.SetLeftRampState;
+import org.usfirst.frc.team2059.robot.commands.SetRightRampState;
+import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
+import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDTurn;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -31,6 +35,7 @@ public class OI {
 	
 	private static Joystick driveJoystick = new Joystick(0);
 	private static Joystick auxJoystick = new Joystick(1);
+	private static Joystick box = new Joystick(2);
 	
 	JoystickButton button1 = new JoystickButton(auxJoystick, 1);
 	JoystickButton button2 = new JoystickButton(auxJoystick, 2);
@@ -42,6 +47,8 @@ public class OI {
 	JoystickButton button8 = new JoystickButton(auxJoystick, 8);
 	JoystickButton button9 = new JoystickButton(auxJoystick, 9);
 	JoystickButton button11 = new JoystickButton(auxJoystick, 11);
+	JoystickButton button12 = new JoystickButton(auxJoystick, 12);
+
 	
 	
 	public static Joystick getDriveJoystick() {
@@ -54,15 +61,25 @@ public class OI {
 		button1.whileHeld(new Intake(-1, -1));
 		button4.whileHeld(new Intake(0.4, 1.0));
 		
-		button5.whileHeld(new Elevate(0.5));
-		button6.whileHeld(new Elevate(-0.5));
+		//button3.whileHeld(new RampDown(.5));
+		//button4.whileHeld(new RampDown(-.5));
+		
+		button5.whileHeld(new Elevate(0.5)); //Up
+		button6.whileHeld(new Elevate(-0.5)); //Down
 
-		button7.whileHeld(new SetLeftRampState(true));
-		button8.whileHeld(new SetLeftRampState(false));
+//		button7.whileHeld(new SetLeftRampState(true));
+//		button8.whileHeld(new SetLeftRampState(false));
+//		
+//		button12.whenPressed(new SetRightRampState(true));
+//		button6.whenPressed(new SetRightRampState(false));
+		
+		//button12.whenPressed(new PIDDrive(60));
+		//button11.whenPressed(new PIDTurn(90));
 		
 		button9.whenPressed(new PIDElevate(20));
 		button2.whenPressed(new PIDElevate(0));
-		button11.whenPressed(new PIDElevate(40));
+		button11.whenPressed(new PIDElevate(70));
+		button12.whenPressed(new PIDElevate(71));
 		
 	}
 	

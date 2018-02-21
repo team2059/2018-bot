@@ -26,7 +26,7 @@ public class PIDElevate extends PIDCommand{
 
 	@Override
 	protected void usePIDOutput(double speed) {
-		CommandBase.elevator.elevate(-speed);
+		CommandBase.elevator.elevate(speed);
 	}
 
 	@Override

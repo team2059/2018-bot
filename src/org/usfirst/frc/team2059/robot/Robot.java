@@ -19,6 +19,7 @@ import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
+import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -57,6 +58,7 @@ public class Robot extends IterativeRobot {
 		
 		oi = new OI();
 		m_chooser.addDefault("Default", null);
+		m_chooser.addObject("Drive Straight", new PIDDrive(120));
 		m_chooser.addObject("Left Auto", new LeftAuto());
 		m_chooser.addObject("Right Auto", new RightAuto());
 		m_chooser.addObject("Center Auto", new CenterAuto());
@@ -132,6 +134,9 @@ public class Robot extends IterativeRobot {
 		
 		SmartDashboard.putNumber("CollectorRight", 0);
 		SmartDashboard.putNumber("CollectorLeft", 0);
+//		SmartDashboard.putNumber("pDriveStraight", RobotMap.pDriveStraight);
+//		SmartDashboard.putNumber("iDriveStraight", RobotMap.iDriveStraight);
+//		SmartDashboard.putNumber("dDriveStraight", RobotMap.dDriveStraight);
 	}
 
 	/**

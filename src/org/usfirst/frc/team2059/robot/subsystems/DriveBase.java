@@ -76,7 +76,7 @@ public class DriveBase extends HHSensorDrive {
 
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new Drive());
+		//setDefaultCommand(new Drive());
 	}
 	
 	@Override
