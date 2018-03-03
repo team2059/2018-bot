@@ -11,13 +11,13 @@ public class Elevate extends CommandBase{
 	protected void initialize() {
 	}
 	
-	protected void execute() {
-		elevator.elevate(speed);
-	}
-	
-	protected void end() {
-	    elevator.elevate(0);
-	  }
+//	protected void execute() {
+//		elevator.elevate(speed);
+//	}
+//	
+//	protected void end() {
+//	    elevator.elevate(0);
+//	  }
 
 	 protected void interrupted() {
 	   end();

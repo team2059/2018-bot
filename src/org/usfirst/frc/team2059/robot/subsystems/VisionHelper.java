@@ -1,25 +1,19 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
 import edu.wpi.first.networktables.*;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class VisionHelper extends Subsystem{
+public class VisionHelper {
 	
 	NetworkTableInstance inst = NetworkTableInstance.getDefault();
 	NetworkTable table = inst.getTable("dataTable");
+	NetworkTableEntry robotState;
 	NetworkTableEntry angleEntry = table.getEntry("");
-	NetworkTableEntry distEntry = table.getEntry("");
+	NetworkTableEntry distEntry = table.getEntry("dist");
 	
-	@Override
-	protected void initDefaultCommand() {
-	}
-	
-	public VisionHelper() {
+	public void startVisionHelper() {
 		inst.startClientTeam(2059);
 		inst.startDSClient();
-		
 	}
-	
 	
 	
 	public double getAngle() {
@@ -32,6 +26,10 @@ public class VisionHelper extends Subsystem{
 	
 	public double getDistanceFromStop() {
 		return 1;
+	}
+	
+	public void setRobotState(String state) {
+		robotState.forceSetString(state);
 	}
 
 }

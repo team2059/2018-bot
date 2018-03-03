@@ -21,9 +21,7 @@ public class DriveBase extends HHSensorDrive {
 	
 	Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
 	Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
-	
-	//AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
-	
+		
 	ADXRS450_Gyro gyro = new ADXRS450_Gyro(Port.kOnboardCS0);
 	
 	SpeedControllerGroup left = new SpeedControllerGroup(leftMotor1, leftMotor2);

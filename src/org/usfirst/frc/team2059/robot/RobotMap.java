@@ -14,7 +14,9 @@ package org.usfirst.frc.team2059.robot;
  * floating around.
  */
 public class RobotMap {
-
+	
+	public static String RobotState = "Disabled";
+	
 	//Drivetrain
 	public static int LeftMotor1 = 0;
 	public static int LeftMotor2 = 1;

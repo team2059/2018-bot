@@ -20,7 +20,7 @@ import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
-
+import org.usfirst.frc.team2059.robot.subsystems.VisionHelper;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -30,6 +30,7 @@ import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
  */
 public class Robot extends IterativeRobot {
 	public static OI oi;
+	public static VisionHelper visionHelper;
 	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -45,9 +46,11 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		CommandBase.init();
-		
+				
 		CommandBase.driveBase.resetLeftEncoder();
-		CommandBase.driveBase.resetRightEncoder();	
+		CommandBase.driveBase.resetRightEncoder();
+		
+		visionHelper.startVisionHelper();
 		
 		camera1 = CameraServer.getInstance().startAutomaticCapture("Camera1", RobotMap.camera1);
 		camera1.setBrightness(50);
@@ -72,7 +75,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void disabledInit() {
-
+		RobotMap.RobotState = "Disabled";
+		visionHelper.setRobotState(RobotMap.RobotState);
 	}
 
 	@Override
@@ -94,6 +98,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
+				
+		RobotMap.RobotState = "Auto";
+		visionHelper.setRobotState(RobotMap.RobotState);
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -122,7 +129,10 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-				
+		
+		RobotMap.RobotState = "Teleop";
+		visionHelper.setRobotState(RobotMap.RobotState);
+		
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
 		CommandBase.driveBase.resetGyro();
@@ -151,7 +161,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Gyro Angle", CommandBase.driveBase.getGyro());
 		SmartDashboard.putBoolean("Hall Effect Bottom", CommandBase.elevator.getHallEffectBottom());
 		SmartDashboard.putBoolean("Hall Effect Top", CommandBase.elevator.getHallEffectTop());
-		//SmartDashboard.putBoolean("Hall Effect 2", CommandBase.elevator.getHallEffect2());
 		SmartDashboard.putNumber("Elevator Encoder Value", CommandBase.elevator.getElevatorEncoder());
 		SmartDashboard.putBoolean("Compressor", CommandBase.pneumatics.getCompressorEnabled());
 	}
@@ -161,5 +170,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+		RobotMap.RobotState = "Teleop";
+		visionHelper.setRobotState(RobotMap.RobotState);
 	}
 }
