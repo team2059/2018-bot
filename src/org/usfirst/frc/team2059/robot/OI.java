@@ -57,15 +57,15 @@ public class OI {
 	
 	
 	public OI() {
-		button3.whileHeld(new Intake(1.0, 0.4));
-		button1.whileHeld(new Intake(-1, -1));
-		button4.whileHeld(new Intake(0.4, 1.0));
+		button3.whileHeld(new Intake(-1.0, -0.4));
+		button1.whileHeld(new Intake(1, 1));
+		button4.whileHeld(new Intake(-0.4, -1.0));
 		
 		//button3.whileHeld(new RampDown(.5));
 		//button4.whileHeld(new RampDown(-.5));
 		
-		button5.whileHeld(new Elevate(0.5)); //Up
-		button6.whileHeld(new Elevate(-0.5)); //Down
+		button5.whileHeld(new Elevate(1.0)); //Up
+		button6.whileHeld(new Elevate(-1.0)); //Down
 
 //		button7.whileHeld(new SetLeftRampState(true));
 //		button8.whileHeld(new SetLeftRampState(false));
