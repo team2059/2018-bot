@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
@@ -33,7 +34,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	
 	Command m_autonomousCommand;
-	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	SendableChooser<RobotMap.Auto> m_chooser = new SendableChooser<>();
 	
 	public static UsbCamera camera1;
 	public static UsbCamera camera2;
@@ -56,11 +57,11 @@ public class Robot extends IterativeRobot {
 		camera2.setBrightness(50);
 		
 		oi = new OI();
-		m_chooser.addDefault("Default", null);
-		m_chooser.addObject("Drive Straight", new PIDDrive(120));
-		m_chooser.addObject("Left Auto", new LeftAuto());
-		m_chooser.addObject("Right Auto", new RightAuto());
-		m_chooser.addObject("Center Auto", new CenterAuto());
+		m_chooser.addDefault("Default", RobotMap.Auto.DONOTHING);
+		m_chooser.addObject("Drive Straight", RobotMap.Auto.DONOTHING);
+		m_chooser.addObject("Left Auto", RobotMap.Auto.LEFT);
+		m_chooser.addObject("Right Auto", RobotMap.Auto.RIGHT);
+		m_chooser.addObject("Center Auto", RobotMap.Auto.CENTER);
 		SmartDashboard.putData("Auto mode", m_chooser);
  	}
 
@@ -92,17 +93,32 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		m_autonomousCommand = m_chooser.getSelected();
+		try {
+			RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
+		} catch (Exception exception) {
+			System.out.println("Game Data not available!");
+		}
 		CommandBase.elevator.setElevatorEncoder(0);
-		
-		RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
-		
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+
+		switch (m_chooser.getSelected()) {
+			case DRIVESTRAIGHT:
+				m_autonomousCommand = new PIDDrive(120);
+				break;
+			case LEFT:
+				m_autonomousCommand = new LeftAuto();
+				break;
+			case CENTER:
+				m_autonomousCommand = new CenterAuto();
+				break;
+			case RIGHT:
+				m_autonomousCommand = new RightAuto();
+				break;
+			case DONOTHING:
+			default:
+				m_autonomousCommand = null;
+				break;
+		}
+
 
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {

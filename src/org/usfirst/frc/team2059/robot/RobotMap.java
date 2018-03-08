@@ -82,4 +82,14 @@ public class RobotMap {
 	public static int RightRamp2 = 5;
 	public static int RightRamp3 = 6;
 	public static int RightRamp4 = 7;
+
+	public enum Auto {
+		DONOTHING,
+		DRIVESTRAIGHT,
+		LEFT,
+		CENTER,
+		RIGHT
+	}
 }
+
+
