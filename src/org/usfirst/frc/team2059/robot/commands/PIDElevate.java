@@ -33,7 +33,7 @@ public class PIDElevate extends PIDCommand{
 	protected boolean isFinished() {
 		System.out.println(Math.abs(getSetpoint() - getPosition()));
 		
-		return Math.abs(getSetpoint() - getPosition()) < .1;
+		return Math.abs(getSetpoint() - getPosition()) < .3;
 	}
 	
 	protected void end() {

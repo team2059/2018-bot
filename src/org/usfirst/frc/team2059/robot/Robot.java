@@ -9,6 +9,7 @@ package org.usfirst.frc.team2059.robot;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -53,8 +54,6 @@ public class Robot extends IterativeRobot {
 		camera1.setBrightness(50);
 		camera2 = CameraServer.getInstance().startAutomaticCapture("Camera2", RobotMap.camera2);
 		camera2.setBrightness(50);
-
-		CommandBase.pneumatics.setCompressorEnabled(true);
 		
 		oi = new OI();
 		m_chooser.addDefault("Default", null);
@@ -94,7 +93,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
-
+		CommandBase.elevator.setElevatorEncoder(0);
+		
+		RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -114,6 +116,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Left Encoder Value", CommandBase.driveBase.getLeftEncoder());
+		SmartDashboard.putNumber("Right Encoder Value", CommandBase.driveBase.getRightEncoder());
+		SmartDashboard.putNumber("Gyro Angle", CommandBase.driveBase.getGyro());
 	}
 
 	@Override
@@ -122,7 +127,10 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-				
+		
+		CommandBase.pneumatics.setCompressorEnabled(true);
+		
+		CommandBase.driveBase.setIsPID(false);		
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();
 		CommandBase.driveBase.resetGyro();

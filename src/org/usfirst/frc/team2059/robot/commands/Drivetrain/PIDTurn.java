@@ -9,6 +9,12 @@ public class PIDTurn extends HHPIDDriveTurn {
 
 	public PIDTurn(double angle) {
 		super(angle, RobotMap.pDriveTurn, RobotMap.iDriveTurn, RobotMap.dDriveTurn);
+		//System.out.println("PID Turn is activating");
+	}
+	
+	public PIDTurn(double angle, String s) {
+		super(angle, RobotMap.pDriveTurn, RobotMap.iDriveTurn, RobotMap.dDriveTurn);
+		//System.out.println("PID Turn is activating");
 	}
 
 	@Override

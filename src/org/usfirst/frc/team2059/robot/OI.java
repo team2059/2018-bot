@@ -73,13 +73,13 @@ public class OI {
 //		button12.whenPressed(new SetRightRampState(true));
 //		button6.whenPressed(new SetRightRampState(false));
 		
-		//button12.whenPressed(new PIDDrive(60));
-		//button11.whenPressed(new PIDTurn(90));
+		button12.whenPressed(new PIDDrive(60));
+		button11.whenPressed(new PIDTurn(-90));
 		
-		button9.whenPressed(new PIDElevate(20));
-		button2.whenPressed(new PIDElevate(0));
-		button11.whenPressed(new PIDElevate(70));
-		button12.whenPressed(new PIDElevate(71));
+		//button11.whenPressed(new PIDElevate(0));
+		//button12.whenPressed(new PIDElevate(40));
+		button2.whenPressed(new PIDElevate(70));
+		//button12.whenPressed(new PIDElevate(71));
 		
 	}
 	

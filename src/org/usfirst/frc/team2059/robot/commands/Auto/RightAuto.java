@@ -18,9 +18,9 @@ public class RightAuto extends CommandGroup{
 		if(!gameData.equals("") && gameData.charAt(0) == 'R' )
 		{
 			//Put switch auto code here
-			addParallel(new PIDElevate(RobotMap.SwitchHeight));
-			addSequential(new PIDDrive(60));
-			addSequential(new PIDTurn(270));
+			//addParallel(new PIDElevate(RobotMap.SwitchHeight));
+			addSequential(new PIDDrive(36));
+			addSequential(new PIDTurn(-90));
 			//addSequential(new Intake(-1), 1000);
 			
 		} else if (!gameData.equals("") && gameData.charAt(1) == 'R') {

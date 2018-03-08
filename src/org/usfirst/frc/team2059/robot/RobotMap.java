@@ -15,6 +15,8 @@ package org.usfirst.frc.team2059.robot;
  */
 public class RobotMap {
 
+	public static String gameData = "LLL";
+	
 	//Drivetrain
 	public static int LeftMotor1 = 0;
 	public static int LeftMotor2 = 1;
@@ -29,13 +31,14 @@ public class RobotMap {
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
-	public static double pDriveTurn = 0.052;
+	public static double pDriveTurn = 0.0317;
 	public static double iDriveTurn = 0.0;
-	public static double dDriveTurn = 0.072;
+	public static double dDriveTurn = 0.07;
+	
 
-	public static double pDriveStraight = 0.051;
+	public static double pDriveStraight = 0.035;
 	public static double iDriveStraight = 0.0;
-	public static double dDriveStraight = 0.072;
+	public static double dDriveStraight = 0.15;
 	
 	//Collector
 	public static int collectorMotor1 = 4;
@@ -56,7 +59,7 @@ public class RobotMap {
 	public static double ElevatorI = 0;
 	public static double ElevatorD = 0;
 	
-	public static int SwitchHeight = 20;
+	public static int SwitchHeight = 40;
 	public static int ScaleHeight = 80;
 	
 	//Ramps
