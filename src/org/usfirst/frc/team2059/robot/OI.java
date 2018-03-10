@@ -68,10 +68,7 @@ public class OI {
 	
 	
 	public OI() {
-		
-		button1d.whenPressed(new PIDTurn(90));
-		button2d.whenPressed(new PIDTurn(0));
-		
+
 		button1.whileHeld(new Intake(1, 1));
 		button3.whileHeld(new Intake(-1.0, -0.4));
 		button4.whileHeld(new Intake(-0.4, -1.0));

@@ -94,6 +94,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		CommandBase.driveBase.resetGyro();
 		try {
 			RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
 		} catch (Exception exception) {

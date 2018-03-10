@@ -33,9 +33,9 @@ public class RobotMap {
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
-	public static double pDriveTurn = 0.0317;
+	public static double pDriveTurn = 0.033;
 	public static double iDriveTurn = 0.0;
-	public static double dDriveTurn = 0.07;
+	public static double dDriveTurn = 0.055;
 	
 
 	public static double pDriveStraight = 0.035;
