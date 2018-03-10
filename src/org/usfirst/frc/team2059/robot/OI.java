@@ -37,6 +37,10 @@ public class OI {
 	private static Joystick auxJoystick = new Joystick(1);
 	private static Joystick box = new Joystick(2);
 	
+	JoystickButton button1d = new JoystickButton(driveJoystick, 1);
+	JoystickButton button2d = new JoystickButton(driveJoystick, 2);
+
+	
 	JoystickButton button1 = new JoystickButton(auxJoystick, 1);
 	JoystickButton button2 = new JoystickButton(auxJoystick, 2);
 	JoystickButton button3 = new JoystickButton(auxJoystick, 3);
@@ -49,35 +53,50 @@ public class OI {
 	JoystickButton button11 = new JoystickButton(auxJoystick, 11);
 	JoystickButton button12 = new JoystickButton(auxJoystick, 12);
 
-	
+	JoystickButton button1b = new JoystickButton(box, 1);
+	JoystickButton button2b = new JoystickButton(box, 2);
+	JoystickButton button3b = new JoystickButton(box, 3);
+	JoystickButton button4b = new JoystickButton(box, 4);
 	
 	public static Joystick getDriveJoystick() {
 		return driveJoystick;
 	}
 	
+	public static Joystick getBoxJoystic() {
+		return box;
+	}
+	
 	
 	public OI() {
-		button3.whileHeld(new Intake(-1.0, -0.4));
+		
+		button1d.whenPressed(new PIDTurn(90));
+		button2d.whenPressed(new PIDTurn(0));
+		
 		button1.whileHeld(new Intake(1, 1));
+		button3.whileHeld(new Intake(-1.0, -0.4));
 		button4.whileHeld(new Intake(-0.4, -1.0));
 		
-		//button3.whileHeld(new RampDown(.5));
-		//button4.whileHeld(new RampDown(-.5));
-		
-		button5.whileHeld(new Elevate(1.0)); //Up
-		button6.whileHeld(new Elevate(-1.0)); //Down
+		button6.whileHeld(new Elevate(1.0)); //Up
+		button5.whileHeld(new Elevate(-1.0)); //Down
 
-//		button7.whileHeld(new SetLeftRampState(true));
-//		button8.whileHeld(new SetLeftRampState(false));
-//		
-//		button12.whenPressed(new SetRightRampState(true));
-//		button6.whenPressed(new SetRightRampState(false));
+		//button7.whenPressed(new SetLeftRampState(true));
+		//button8.whenPressed(new SetLeftRampState(false));
+		button7.whileHeld(new RampDown(.5));
+		button8.whileHeld(new RampDown(-.5));
 		
-		button12.whenPressed(new PIDDrive(60));
-		button11.whenPressed(new PIDTurn(-90));
+		button1b.whenPressed(new SetRightRampState(true));
+		button2b.whenPressed(new SetRightRampState(false));
+		button3b.whenPressed(new SetLeftRampState(true));
+		button4b.whenPressed(new SetLeftRampState(false));
 		
-		//button11.whenPressed(new PIDElevate(0));
-		//button12.whenPressed(new PIDElevate(40));
+		//button9.whenPressed(new SetRightRampState(true));
+		//button12.whenPressed(new SetRightRampState(false));
+		
+		//button12.whenPressed(new PIDDrive(60));
+		//button11.whenPressed(new PIDTurn(-90));
+		
+		button11.whenPressed(new PIDElevate(0));
+		button12.whenPressed(new PIDElevate(40));
 		button2.whenPressed(new PIDElevate(70));
 		//button12.whenPressed(new PIDElevate(71));
 		

@@ -17,6 +17,8 @@ public class RobotMap {
 
 	public static String gameData = "LLL";
 	
+	public static boolean pidElevatorValue = false;
+	
 	//Drivetrain
 	public static int LeftMotor1 = 0;
 	public static int LeftMotor2 = 1;

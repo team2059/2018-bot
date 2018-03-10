@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2059.robot.commands;
 
+import org.usfirst.frc.team2059.robot.RobotMap;
+
 public class Elevate extends CommandBase{
 	
 	double speed;
@@ -9,6 +11,7 @@ public class Elevate extends CommandBase{
 	}
 	
 	protected void initialize() {
+		RobotMap.pidElevatorValue = false;
 	}
 	
 	protected void execute() {

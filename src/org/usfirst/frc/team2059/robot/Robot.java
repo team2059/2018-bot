@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.DriveStraingAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
@@ -58,7 +59,7 @@ public class Robot extends IterativeRobot {
 		
 		oi = new OI();
 		m_chooser.addDefault("Default", RobotMap.Auto.DONOTHING);
-		m_chooser.addObject("Drive Straight", RobotMap.Auto.DONOTHING);
+		m_chooser.addObject("Drive Straight", RobotMap.Auto.DRIVESTRAIGHT);
 		m_chooser.addObject("Left Auto", RobotMap.Auto.LEFT);
 		m_chooser.addObject("Right Auto", RobotMap.Auto.RIGHT);
 		m_chooser.addObject("Center Auto", RobotMap.Auto.CENTER);
@@ -102,7 +103,7 @@ public class Robot extends IterativeRobot {
 
 		switch (m_chooser.getSelected()) {
 			case DRIVESTRAIGHT:
-				m_autonomousCommand = new PIDDrive(120);
+				m_autonomousCommand = new DriveStraingAuto();
 				break;
 			case LEFT:
 				m_autonomousCommand = new LeftAuto();

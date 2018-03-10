@@ -13,8 +13,8 @@ public class CenterAuto extends CommandGroup {
 
 	public CenterAuto() {
 		System.out.println(RobotMap.gameData.charAt(0));
-//		addParallel(new PIDElevate(RobotMap.SwitchHeight), 2);
-		addParallel(new AutoStartup(RobotMap.SwitchHeight));
+		addParallel(new PIDElevate(RobotMap.SwitchHeight), 2);
+	 	addParallel(new AutoStartup(RobotMap.SwitchHeight));
 		addSequential(new PIDDrive(36), 2);
 
 		if (RobotMap.gameData.charAt(0) == 'L') {

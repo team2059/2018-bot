@@ -10,12 +10,13 @@ public class PIDElevate extends PIDCommand{
 	public PIDElevate(double inches) {
 		super(RobotMap.ElevatorP, RobotMap.ElevatorI, RobotMap.ElevatorD);
 		
-		setTimeout(inches*2000);
+		setTimeout(3000);
 		setSetpoint(inches); 
 		System.out.println(inches);
 	}
 	
 	protected void initialize() {
+		RobotMap.pidElevatorValue = true;
 		System.out.println("Started");
 	}
 	
@@ -33,7 +34,7 @@ public class PIDElevate extends PIDCommand{
 	protected boolean isFinished() {
 		System.out.println(Math.abs(getSetpoint() - getPosition()));
 		
-		return Math.abs(getSetpoint() - getPosition()) < .3;
+		return Math.abs(getSetpoint() - getPosition()) < .7 || RobotMap.pidElevatorValue == false;
 	}
 	
 	protected void end() {

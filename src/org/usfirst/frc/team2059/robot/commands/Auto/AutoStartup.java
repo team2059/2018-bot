@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoStartup extends CommandGroup {
 
 	public AutoStartup(double elevatorHeight) {
-		addSequential(new RampDown(0.2), 0.5);
+		addSequential(new RampDown(0.2), 0.1);
 		addSequential(new PIDElevate(elevatorHeight), 2);
+		addSequential(new RampDown(-0.2), 0.1);
 	}
 }
