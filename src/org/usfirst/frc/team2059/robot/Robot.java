@@ -21,7 +21,9 @@ import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.DriveStraingAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.LeftScaleAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.RightScaleAuto;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
 
 /**
@@ -63,6 +65,8 @@ public class Robot extends IterativeRobot {
 		m_chooser.addObject("Left Auto", RobotMap.Auto.LEFT);
 		m_chooser.addObject("Right Auto", RobotMap.Auto.RIGHT);
 		m_chooser.addObject("Center Auto", RobotMap.Auto.CENTER);
+		m_chooser.addObject("Left Scale Auto", RobotMap.Auto.LEFTSCALE);
+		m_chooser.addObject("Right Scale Auto", RobotMap.Auto.RIGHTSCALE);
 		SmartDashboard.putData("Auto mode", m_chooser);
  	}
 
@@ -114,6 +118,12 @@ public class Robot extends IterativeRobot {
 				break;
 			case RIGHT:
 				m_autonomousCommand = new RightAuto();
+				break;
+			case LEFTSCALE:
+				m_autonomousCommand = new LeftScaleAuto();
+				break;
+			case RIGHTSCALE:
+				m_autonomousCommand = new RightScaleAuto();
 				break;
 			case DONOTHING:
 			default:
