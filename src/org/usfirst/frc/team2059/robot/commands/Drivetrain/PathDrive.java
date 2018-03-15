@@ -34,8 +34,8 @@ public class PathDrive extends Command {
         // The fourth argument is the velocity ratio. This is 1 over the maximum velocity you provided in the
         //      trajectory configuration (it translates m/s to a -1 to 1 scale that your motors can read)
         // The fifth argument is your acceleration gain. Tweak this if you want to get to a higher or lower speed quicker
-        left.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
-        right.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
+         left.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
+         right.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
 
     }
 
@@ -51,9 +51,9 @@ public class PathDrive extends Command {
     @Override
     protected void execute() {
         Trajectory.Segment seg = trajectory.get(count);
-        System.out.printf("%f,%f,%f,%f,%f,%f,%f,%f\n",
-                seg.dt, seg.x, seg.y, seg.position, seg.velocity,
-                seg.acceleration, seg.jerk, Pathfinder.boundHalfDegrees(Pathfinder.r2d(seg.heading)));
+//        System.out.printf("%f,%f,%f,%f,%f,%f,%f,%f\n",
+//                seg.dt, seg.x, seg.y, seg.position, seg.velocity,
+//                seg.acceleration, seg.jerk, Pathfinder.boundHalfDegrees(Pathfinder.r2d(seg.heading)));
 //
 //        System.out.printf("l: %f, r: %f", modifier.getLeftTrajectory().get(count).position,
 //                modifier.getRightTrajectory().get(count).position);
@@ -70,6 +70,7 @@ public class PathDrive extends Command {
         CommandBase.driveBase.driveBaseTank(l + turn, r - turn);
 
         count++;
+        System.out.println("left: " + l + " right: " + r);
     }
 
     @Override
