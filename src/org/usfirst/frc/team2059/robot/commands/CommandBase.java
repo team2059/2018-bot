@@ -17,10 +17,10 @@ public abstract class CommandBase extends Command {
 	public static Ramp ramps;
 	
 	public static void init() {
-	    driveBase = new DriveBase();
-	    elevator = new Elevator();
-	    collector = new Collector();
-	    pneumatics = new Pneumatics();
-	    ramps = new Ramp();
+//	    driveBase = new DriveBase();
+//	    elevator = new Elevator();
+//	    collector = new Collector();
+//	    pneumatics = new Pneumatics();
+//	    ramps = new Ramp();
 	  }
 }

@@ -121,17 +121,33 @@
     <orderEntry type="module-library">
       <library name="WPILib User Lib Directory">
         <CLASSES>
-          <root url="file://$USER_HOME$/wpilib/user/java/lib" />
+          <root url="file://$wpilib$/user/java/lib" />
         </CLASSES>
         <JAVADOC>
-          <root url="file://$USER_HOME$/wpilib/user/java/lib" />
+          <root url="file://$wpilib$/user/java/lib" />
         </JAVADOC>
         <SOURCES>
-          <root url="file://$USER_HOME$/wpilib/user/java/lib" />
+          <root url="file://$wpilib$/user/java/lib" />
         </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/wpilib/user/java/lib" recursive="true" />
-        <jarDirectory url="file://$USER_HOME$/wpilib/user/java/lib" recursive="true" type="JAVADOC" />
-        <jarDirectory url="file://$USER_HOME$/wpilib/user/java/lib" recursive="true" type="SOURCES" />
+        <jarDirectory url="file://$wpilib$/user/java/lib" recursive="true" />
+        <jarDirectory url="file://$wpilib$/user/java/lib" recursive="true" type="JAVADOC" />
+        <jarDirectory url="file://$wpilib$/user/java/lib" recursive="true" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="WPILib Libraries">
+        <CLASSES>
+          <root url="file://$wpilib$/java/current/lib" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://$wpilib$/java/current/lib" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$wpilib$/java/current/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$wpilib$/java/current/lib" recursive="true" />
+        <jarDirectory url="file://$wpilib$/java/current/lib" recursive="true" type="JAVADOC" />
+        <jarDirectory url="file://$wpilib$/java/current/lib" recursive="true" type="SOURCES" />
       </library>
     </orderEntry>
   </component>
