@@ -19,14 +19,14 @@ public class PathDrive extends Command {
 
     public PathDrive(Waypoint[] waypoints) {
         trajectory = Pathfinder.generate(waypoints, AutoPaths.config);
-        modifier = new TankModifier(trajectory).modify(20);
-        /*
+        modifier = new TankModifier(trajectory).modify(23);
+
         left = new EncoderFollower(modifier.getLeftTrajectory());
         right = new EncoderFollower(modifier.getRightTrajectory());
-        left.configureEncoder(0, 100, 6);
-        right.configureEncoder(0, 100, 6);
+//        left.configureEncoder(0, 100, 6);
+//        right.configureEncoder(0, 100, 6);
         left.configureEncoder(CommandBase.driveBase.getLeftEncoderRaw(), 128, 6);
-        left.configureEncoder(CommandBase.driveBase.getRightEncoderRaw(), 128, 6);
+        right.configureEncoder(CommandBase.driveBase.getRightEncoderRaw(), 128, 6);
 
         // The first argument is the proportional gain. Usually this will be quite high
         // The second argument is the integral gain. This is unused for motion profiling
@@ -36,16 +36,16 @@ public class PathDrive extends Command {
         // The fifth argument is your acceleration gain. Tweak this if you want to get to a higher or lower speed quicker
         left.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
         right.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
-        */
+
     }
 
     @Override
     protected void initialize() {
-        /*
+
         CommandBase.driveBase.setIsPID(true);
         CommandBase.driveBase.resetLeftEncoder();
         CommandBase.driveBase.resetRightEncoder();
-        */
+
     }
 
     @Override
@@ -57,7 +57,7 @@ public class PathDrive extends Command {
 //
 //        System.out.printf("l: %f, r: %f", modifier.getLeftTrajectory().get(count).position,
 //                modifier.getRightTrajectory().get(count).position);
-        /*
+
         l = left.calculate(CommandBase.driveBase.getLeftEncoderRaw());
         r = right.calculate(CommandBase.driveBase.getRightEncoderRaw());
 
@@ -68,13 +68,13 @@ public class PathDrive extends Command {
         turn = 0.8 * (-1.0/80.0) * angleDifference;
 
         CommandBase.driveBase.driveBaseTank(l + turn, r - turn);
-        */
+
         count++;
     }
 
     @Override
     protected void end() {
-        //CommandBase.driveBase.setIsPID(false);
+        CommandBase.driveBase.setIsPID(false);
     }
 
     @Override

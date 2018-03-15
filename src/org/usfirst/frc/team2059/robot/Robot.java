@@ -16,9 +16,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import jaci.pathfinder.Pathfinder;
-import jaci.pathfinder.Trajectory;
-import jaci.pathfinder.Waypoint;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.DriveStraingAuto;
@@ -52,13 +49,13 @@ public class Robot extends IterativeRobot {
 		
 		CommandBase.init();
 		
-//		CommandBase.driveBase.resetLeftEncoder();
-//		CommandBase.driveBase.resetRightEncoder();
+		CommandBase.driveBase.resetLeftEncoder();
+		CommandBase.driveBase.resetRightEncoder();
 
-//		camera1 = CameraServer.getInstance().startAutomaticCapture("Camera1", RobotMap.camera1);
-//		camera1.setBrightness(50);
-//		camera2 = CameraServer.getInstance().startAutomaticCapture("Camera2", RobotMap.camera2);
-//		camera2.setBrightness(50);
+		camera1 = CameraServer.getInstance().startAutomaticCapture("Camera1", RobotMap.camera1);
+		camera1.setBrightness(50);
+		camera2 = CameraServer.getInstance().startAutomaticCapture("Camera2", RobotMap.camera2);
+		camera2.setBrightness(50);
 		
 		oi = new OI();
 		m_chooser.addDefault("Default", RobotMap.Auto.DONOTHING);
@@ -97,13 +94,13 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-//		CommandBase.driveBase.resetGyro();
+		CommandBase.driveBase.resetGyro();
 		try {
 			RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
 		} catch (Exception exception) {
 			System.out.println("Game Data not available!");
 		}
-//		CommandBase.elevator.setElevatorEncoder(0);
+		CommandBase.elevator.setElevatorEncoder(0);
 
 		switch (m_chooser.getSelected()) {
 			case DRIVESTRAIGHT:
@@ -113,7 +110,7 @@ public class Robot extends IterativeRobot {
 				m_autonomousCommand = new LeftAuto();
 				break;
 			case CENTER:
-				m_autonomousCommand = new CenterAuto();
+				m_autonomousCommand = new PathDrive(AutoPaths.driveForward);
 				break;
 			case RIGHT:
 				m_autonomousCommand = new RightAuto();
@@ -124,7 +121,6 @@ public class Robot extends IterativeRobot {
 				break;
 		}
 
-		m_autonomousCommand = new PathDrive(AutoPaths.toRightSwitch);
 		// schedule the autonomous command (example)
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
@@ -137,9 +133,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-//		SmartDashboard.putNumber("Left Encoder Value", CommandBase.driveBase.getLeftEncoder());
-//		SmartDashboard.putNumber("Right Encoder Value", CommandBase.driveBase.getRightEncoder());
-//		SmartDashboard.putNumber("Gyro Angle", CommandBase.driveBase.getGyro());
+		SmartDashboard.putNumber("Left Encoder Value", CommandBase.driveBase.getLeftEncoder());
+		SmartDashboard.putNumber("Right Encoder Value", CommandBase.driveBase.getRightEncoder());
+		SmartDashboard.putNumber("Gyro Angle", CommandBase.driveBase.getGyro());
 	}
 
 	@Override
