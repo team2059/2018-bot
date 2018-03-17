@@ -22,6 +22,7 @@ import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.DriveStraingAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftScaleAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.LeftSwitchAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightScaleAuto;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
@@ -50,7 +51,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		CommandBase.init();
-		
+		CommandBase.driveBase.setIsPID(true);
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();	
 		
@@ -67,6 +68,7 @@ public class Robot extends IterativeRobot {
 		m_chooser.addObject("Center Auto", RobotMap.Auto.CENTER);
 		m_chooser.addObject("Left Scale Auto", RobotMap.Auto.LEFTSCALE);
 		m_chooser.addObject("Right Scale Auto", RobotMap.Auto.RIGHTSCALE);
+		m_chooser.addObject("Left Switch Auto", RobotMap.Auto.LEFTSWITCH);
 		SmartDashboard.putData("Auto mode", m_chooser);
  	}
 
@@ -98,6 +100,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		
+		CommandBase.driveBase.setIsPID(true);
+		
 		CommandBase.driveBase.resetGyro();
 		try {
 			RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
@@ -124,6 +129,9 @@ public class Robot extends IterativeRobot {
 				break;
 			case RIGHTSCALE:
 				m_autonomousCommand = new RightScaleAuto();
+				break;
+			case LEFTSWITCH:
+				m_autonomousCommand = new LeftSwitchAuto();
 				break;
 			case DONOTHING:
 			default:
@@ -156,7 +164,7 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		
-		CommandBase.pneumatics.setCompressorEnabled(true);
+//		CommandBase.pneumatics.setCompressorEnabled(true);
 		
 		CommandBase.driveBase.setIsPID(false);		
 		CommandBase.driveBase.resetLeftEncoder();

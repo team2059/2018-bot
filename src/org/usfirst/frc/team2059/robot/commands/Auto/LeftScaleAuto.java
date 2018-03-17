@@ -14,18 +14,23 @@ public class LeftScaleAuto extends CommandGroup{
 		addSequential(new PIDElevate(RobotMap.ScaleHeight), 3);
 		
 		if (RobotMap.gameData.charAt(1) == 'L') {
-			addSequential(new PIDDrive(360), 4);
-			addSequential(new Intake(1,1), 1);
 			
-		} else if (RobotMap.gameData.charAt(0) == 'R') {
-			addSequential(new PIDDrive(200), 3);
-			addSequential(new PIDTurn(90), 2);
-			addSequential(new PIDDrive(200), 3);
-			addSequential(new PIDTurn(0), 2);
-			addSequential(new PIDDrive(160), 2);
+			addSequential(new PIDDrive(298), 4);
 			addSequential(new Intake(1,1), 1);
+			addSequential(new PIDDrive(-20), 1);
+			addSequential(new PIDElevate(0));
+			
+		} else if (RobotMap.gameData.charAt(1) == 'R') {
+			
+			addSequential(new PIDDrive(215), 3);
+			addSequential(new PIDTurn(90), 2);
+			addSequential(new PIDDrive(190), 3);			
+			addSequential(new PIDTurn(0), 2);
+			addSequential(new PIDDrive(83), 2);
+			addSequential(new Intake(1,1), 1);
+			addSequential(new PIDDrive(-20), 1);
+			addSequential(new PIDElevate(0));
+			
 		}
-		
 	}
-	
 }
