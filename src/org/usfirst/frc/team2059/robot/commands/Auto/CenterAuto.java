@@ -40,25 +40,24 @@ public class CenterAuto extends CommandGroup {
 //			}
 		}
 		
-		
 		try {
 			
-			addSequential(new PIDElevate(RobotMap.SwitchHeight), 2);
+			addParallel(new PIDElevate(RobotMap.SwitchHeight), 2);
 			addSequential(new PIDDrive(36), 1);
 	
 			if (RobotMap.gameData.charAt(0) == 'L') {
 				addSequential(new PIDTurn(-90), 1.5);
-				addSequential(new PIDDrive(36));
+				addSequential(new PIDDrive(26), 1.5);
 			} else if (RobotMap.gameData.charAt(0) == 'R') {
 				addSequential(new PIDTurn(90), 1.5);
-				addSequential(new PIDDrive(28));
+				addSequential(new PIDDrive(26), 1.5);
 			}
 			
 			addSequential(new PIDTurn(0), 2);
-			addSequential(new PIDDrive(32), 2);
+			addSequential(new PIDDrive(40), 3);
 			addSequential(new Intake(1, 1), 1);
 			addSequential(new PIDDrive(-40), 1);
-			addSequential(new PIDElevate(0));
+			addSequential(new PIDElevate(0), 1);
 			
 		}catch (Exception e) {
 			System.out.println("ERROR: " + e.toString());

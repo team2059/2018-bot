@@ -94,7 +94,11 @@ public class OI {
 		
 		button11.whenPressed(new PIDElevate(0));
 		button12.whenPressed(new PIDElevate(40));
-		button2.whenPressed(new PIDElevate(70));
+		
+		button2.whileHeld(new Intake(.3,.3));
+		
+		//button2.whenPressed(new PIDElevate(70));
+		
 		//button12.whenPressed(new PIDElevate(71));
 		
 	}

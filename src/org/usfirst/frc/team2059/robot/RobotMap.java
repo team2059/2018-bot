@@ -61,7 +61,7 @@ public class RobotMap {
 	public static double ElevatorI = 0;
 	public static double ElevatorD = 0;
 	
-	public static int SwitchHeight = 40;
+	public static int SwitchHeight = 35;
 	public static int ScaleHeight = 70;
 	
 	//Ramps
