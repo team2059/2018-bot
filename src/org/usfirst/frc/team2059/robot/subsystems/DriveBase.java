@@ -42,6 +42,11 @@ public class DriveBase extends HHSensorDrive {
 		setyHighSpeed(.8);
 		setzHighSpeed(.8);
 		gyro.calibrate();
+		leftMotor1.setSafetyEnabled(false);
+		leftMotor2.setSafetyEnabled(false);
+		rightMotor1.setSafetyEnabled(false);
+		rightMotor2.setSafetyEnabled(false);
+
 	}
 
 	@Override
@@ -89,6 +94,7 @@ public class DriveBase extends HHSensorDrive {
 	
 	@Override
 	public void driveBase(double x, double y) {
+		System.out.println("x: " + x + " y: " + y);
 		robotDrive.arcadeDrive(y, x);
 	}
 

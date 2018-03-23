@@ -33,11 +33,11 @@ public class RobotMap {
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
-	public static double pDriveTurn = 0.033;
+	public static double pDriveTurn = 0.031;
 	public static double iDriveTurn = 0.0;
 	public static double dDriveTurn = 0.055;
 
-	public static double pDriveStraight = 0.035;
+	public static double pDriveStraight = 0.033;
 	public static double iDriveStraight = 0.0;
 	public static double dDriveStraight = 0.15;
 
@@ -64,7 +64,7 @@ public class RobotMap {
 	public static double ElevatorI = 0;
 	public static double ElevatorD = 0;
 	
-	public static int SwitchHeight = 40;
+	public static int SwitchHeight = 35;
 	public static int ScaleHeight = 70;
 	
 	//Ramps
@@ -95,7 +95,8 @@ public class RobotMap {
 		CENTER,
 		RIGHT,
 		LEFTSCALE,
-		RIGHTSCALE
+		RIGHTSCALE,
+		LEFTSWITCH
 	}
 }
 
