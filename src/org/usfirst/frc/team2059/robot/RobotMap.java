@@ -36,11 +36,14 @@ public class RobotMap {
 	public static double pDriveTurn = 0.033;
 	public static double iDriveTurn = 0.0;
 	public static double dDriveTurn = 0.055;
-	
 
 	public static double pDriveStraight = 0.035;
 	public static double iDriveStraight = 0.0;
 	public static double dDriveStraight = 0.15;
+
+	public static double straightLineP = 0.018;
+	public static double straightLineI = 0;
+	public static double straightLineD = 0.0054;
 	
 	//Collector
 	public static int collectorMotor1 = 4;

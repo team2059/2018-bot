@@ -69,6 +69,14 @@ public class DriveBase extends HHSensorDrive {
 		return -rightEncoder.get() / 6.88;
 	}
 
+	public int getLeftEncoderRaw() {
+		return leftEncoder.get();
+	}
+
+	public int getRightEncoderRaw() {
+		return -rightEncoder.get();
+	}
+
 	@Override
 	public double getGyro() {
 		return gyro.getAngle() % 360;
@@ -83,5 +91,10 @@ public class DriveBase extends HHSensorDrive {
 	public void driveBase(double x, double y) {
 		robotDrive.arcadeDrive(y, x);
 	}
-	
+
+	public void driveBaseTank(double left, double right) {
+		if (isPID()) {
+			robotDrive.tankDrive(left, right);
+		}
+	}
 }
