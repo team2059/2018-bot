@@ -16,14 +16,19 @@ public class AutoPaths {
 
     public static Waypoint[] toLeftSwitch = new Waypoint[] {
             new Waypoint(0, 0, Pathfinder.d2r(0)),
-            new Waypoint(50, 32, Pathfinder.d2r(0)),
-            new Waypoint(68, 32, Pathfinder.d2r(0))
+            new Waypoint(50, 40, Pathfinder.d2r(0)),
+            new Waypoint(75, 40, Pathfinder.d2r(0))
     };
 
     public static Waypoint[] toRightSwitch = new Waypoint[] {
             new Waypoint(0, 0, Pathfinder.d2r(0)),
-            new Waypoint(50, -32, Pathfinder.d2r(0)),
-            new Waypoint(68, -32, Pathfinder.d2r(0))
+            new Waypoint(50, -40, Pathfinder.d2r(0)),
+            new Waypoint(75, -40, Pathfinder.d2r(0))
+    };
+    
+    public static Waypoint[] back = new Waypoint[] {
+    		new Waypoint(0, 0, Pathfinder.d2r(0)),
+    		new Waypoint(0, -20, Pathfinder.d2r(0))
     };
 
     // Create the Trajectory Configuration

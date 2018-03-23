@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2059.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -41,6 +43,10 @@ public class RobotMap {
 	public static double pDriveStraight = 0.035;
 	public static double iDriveStraight = 0.0;
 	public static double dDriveStraight = 0.15;
+	
+	public static double straightLineP = 0.018;
+	public static double straightLineI = 0;
+	public static double straightLineD = 0.0054;
 	
 	//Collector
 	public static int collectorMotor1 = 4;

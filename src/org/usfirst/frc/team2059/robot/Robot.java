@@ -64,6 +64,10 @@ public class Robot extends IterativeRobot {
 		m_chooser.addObject("Right Auto", RobotMap.Auto.RIGHT);
 		m_chooser.addObject("Center Auto", RobotMap.Auto.CENTER);
 		SmartDashboard.putData("Auto mode", m_chooser);
+		
+		SmartDashboard.putNumber("testP", 0.0);
+		SmartDashboard.putNumber("testI", 0.0);
+		SmartDashboard.putNumber("testD", 0.0);
  	}
 
 	/**
@@ -94,6 +98,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		
 		CommandBase.driveBase.resetGyro();
 		try {
 			RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
@@ -110,7 +115,7 @@ public class Robot extends IterativeRobot {
 				m_autonomousCommand = new LeftAuto();
 				break;
 			case CENTER:
-				m_autonomousCommand = new PathDrive(AutoPaths.driveForward);
+				m_autonomousCommand = new CenterAuto();
 				break;
 			case RIGHT:
 				m_autonomousCommand = new RightAuto();

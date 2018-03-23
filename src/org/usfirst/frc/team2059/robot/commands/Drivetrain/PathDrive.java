@@ -1,12 +1,14 @@
 package org.usfirst.frc.team2059.robot.commands.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.Waypoint;
 import jaci.pathfinder.followers.EncoderFollower;
 import jaci.pathfinder.modifiers.TankModifier;
 import org.usfirst.frc.team2059.robot.AutoPaths;
+import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 
 public class PathDrive extends Command {
@@ -25,8 +27,8 @@ public class PathDrive extends Command {
         right = new EncoderFollower(modifier.getRightTrajectory());
 //        left.configureEncoder(0, 100, 6);
 //        right.configureEncoder(0, 100, 6);
-        left.configureEncoder(CommandBase.driveBase.getLeftEncoderRaw(), 128, 6);
-        right.configureEncoder(CommandBase.driveBase.getRightEncoderRaw(), 128, 6);
+        left.configureEncoder(CommandBase.driveBase.getLeftEncoderRaw(), 128, 5.75);
+        right.configureEncoder(CommandBase.driveBase.getRightEncoderRaw(), 128, 5.75);
 
         // The first argument is the proportional gain. Usually this will be quite high
         // The second argument is the integral gain. This is unused for motion profiling
@@ -34,8 +36,10 @@ public class PathDrive extends Command {
         // The fourth argument is the velocity ratio. This is 1 over the maximum velocity you provided in the
         //      trajectory configuration (it translates m/s to a -1 to 1 scale that your motors can read)
         // The fifth argument is your acceleration gain. Tweak this if you want to get to a higher or lower speed quicker
-         left.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
-         right.configurePIDVA(1.0, 0.0, 0.0, 1 / AutoPaths.maxVelocity, 0);
+        
+         left.configurePIDVA(RobotMap.straightLineP, RobotMap.straightLineI, RobotMap.straightLineD, 1 / AutoPaths.maxVelocity, 0);
+         
+         right.configurePIDVA(RobotMap.straightLineP, RobotMap.straightLineI, RobotMap.straightLineD, 1 / AutoPaths.maxVelocity, 0);
 
     }
 
@@ -65,12 +69,14 @@ public class PathDrive extends Command {
         desired_heading = -Pathfinder.r2d(left.getHeading());  // Should also be in degrees
 
         angleDifference = Pathfinder.boundHalfDegrees(desired_heading - gyro_heading);
-        turn = 0.8 * (-1.0/80.0) * angleDifference;
+        turn = 4.0 * (1.0/80.0) * angleDifference;
 
         CommandBase.driveBase.driveBaseTank(l + turn, r - turn);
 
         count++;
         System.out.println("left: " + l + " right: " + r);
+        System.out.println("Angle Difference: " + angleDifference);
+        System.out.println("turn value " + turn);
     }
 
     @Override
