@@ -17,13 +17,13 @@ public class CenterAuto extends CommandGroup {
 		System.out.println(RobotMap.gameData.charAt(0));
 		addParallel(new PIDElevate(RobotMap.SwitchHeight), 2);
 		if (RobotMap.gameData.charAt(0) == 'L') {
-			addSequential(new PathDrive(AutoPaths.toLeftSwitch));
+			addSequential(new PathDrive(AutoPaths.toLeftSwitch), 7);
 		} else if (RobotMap.gameData.charAt(0) == 'R') {
-			addSequential(new PathDrive(AutoPaths.toRightSwitch));
+			addSequential(new PathDrive(AutoPaths.toRightSwitch), 7);
 		}
 		addSequential(new Intake(1, 1), 1);
-		//addSequential(new PathDrive(AutoPaths.back));
-		//addSequential(new PIDElevate(0), 2);
+		addSequential(new PIDDrive(-30), 2);
+		addSequential(new PIDElevate(0), 2);
 	}
 
 }

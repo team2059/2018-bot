@@ -70,6 +70,10 @@ public class RobotMap {
 	//Ramps
 	public static int rampMotor = 8;
 	
+	//Climber
+	public static int climberMotor1 = 9;
+	public static int climberMotor2 = 10;
+	
 	//Vision
 	public static int camera1 = 0;
 	public static int camera2 = 1;
