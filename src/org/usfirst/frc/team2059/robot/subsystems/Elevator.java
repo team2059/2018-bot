@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 
 import org.usfirst.frc.team2059.robot.RobotMap;
+import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.LimitSwitch;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Elevator extends Subsystem{
 	TalonSRX elevatorMotor = new TalonSRX(RobotMap.elevatorMotor1);
+	TalonSRX elevatorMotor2 = new TalonSRX(RobotMap.elevatorMotor2);
 	
 	DigitalInput hallEffectBottom = new DigitalInput(RobotMap.hallEffect1);
 	DigitalInput hallEffectTop = new DigitalInput(RobotMap.hallEffect2);
@@ -53,7 +55,8 @@ public class Elevator extends Subsystem{
 	
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new LimitSwitch());
+		//setDefaultCommand(new Elevate());
+		//setDefaultCommand(new LimitSwitch());
 	}
 	
 }

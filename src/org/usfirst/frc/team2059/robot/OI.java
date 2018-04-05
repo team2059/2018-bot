@@ -62,9 +62,9 @@ public class OI {
 		return driveJoystick;
 	}
 	
-//	public static Joystick getBoxJoystic() {
-//		return box;
-//	}
+	public static Joystick getAuxJoystick() {
+		return auxJoystick;
+	}
 	
 	
 	public OI() {
@@ -73,18 +73,18 @@ public class OI {
 		button3.whileHeld(new Intake(-1.0, -0.4));
 		button4.whileHeld(new Intake(-0.4, -1.0));
 		
-		button6.whileHeld(new Elevate(1.0)); //Up
-		button5.whileHeld(new Elevate(-1.0)); //Down
+//		button6.whileHeld(new Elevate(1.0)); //Up
+//		button5.whileHeld(new Elevate(-1.0)); //Down
 
 		//button7.whenPressed(new SetLeftRampState(true));
 		//button8.whenPressed(new SetLeftRampState(false));
-		button7.whileHeld(new RampDown(.5));
-		button8.whileHeld(new RampDown(-.5));
+		//button7.whileHeld(new RampDown(.5));
+		//button8.whileHeld(new RampDown(-.5));
 		
-//		button1b.whenPressed(new SetRightRampState(true));
-//		button2b.whenPressed(new SetRightRampState(false));
-//		button3b.whenPressed(new SetLeftRampState(true));
-//		button4b.whenPressed(new SetLeftRampState(false));
+		//button1b.whenPressed(new SetRightRampState(true));
+		//button2b.whenPressed(new SetRightRampState(false));
+		//button3b.whenPressed(new SetLeftRampState(true));
+		//button4b.whenPressed(new SetLeftRampState(false));
 		
 		//button9.whenPressed(new SetRightRampState(true));
 		//button12.whenPressed(new SetRightRampState(false));

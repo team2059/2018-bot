@@ -18,8 +18,8 @@ public class PathDrive extends Command {
 	private int count = 0;
 	private double l, r, gyro_heading, desired_heading, angleDifference, turn;
 
-	public PathDrive(Waypoint[] waypoints) {
-		trajectory = Pathfinder.generate(waypoints, AutoPaths.config);
+	public PathDrive(Waypoint[] waypoints, Trajectory.Config t) {
+		trajectory = Pathfinder.generate(waypoints, t);
 		modifier = new TankModifier(trajectory).modify(23);
 
 		left = new EncoderFollower(modifier.getLeftTrajectory());

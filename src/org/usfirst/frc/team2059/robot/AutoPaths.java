@@ -25,11 +25,37 @@ public class AutoPaths {
 			new Waypoint(50, -52, Pathfinder.d2r(0)),
 			new Waypoint(95, -52, Pathfinder.d2r(0))
 	};
-
-	public static Waypoint[] back = new Waypoint[] {
+	
+	public static Waypoint[] RightToCubes = new Waypoint[] {
 			new Waypoint(0, 0, Pathfinder.d2r(0)),
-			new Waypoint(0, -20, Pathfinder.d2r(0))
+			new Waypoint(60, 80, Pathfinder.d2r(45))
 	};
+	
+	public static Waypoint[] LeftToCubes = new Waypoint[] {
+			new Waypoint(0, 0, Pathfinder.d2r(0)),
+			new Waypoint(60, -70, Pathfinder.d2r(-45))
+	};
+	
+	public static Waypoint[] RightToRightScale = new Waypoint[] {
+			new Waypoint(0, 0, Pathfinder.d2r(0)),
+			new Waypoint(298, 0, Pathfinder.d2r(0)),
+	};
+	
+	public static Waypoint[] RightToLeftScale = new Waypoint[] {
+			new Waypoint(0, 0, Pathfinder.d2r(0)),
+			new Waypoint(215, 0, Pathfinder.d2r(0)),
+			new Waypoint(290, 190, Pathfinder.d2r(0))
+	};
+	
+	public static Waypoint[] LeftToLeftScale = new Waypoint[] {
+			new Waypoint(0, 0, Pathfinder.d2r(0)),
+			new Waypoint(220, 0, Pathfinder.d2r(0)),
+	};
+
+//	public static Waypoint[] back = new Waypoint[] {
+//			new Waypoint(0, 0, Pathfinder.d2r(0)),
+//			new Waypoint(0, -20, Pathfinder.d2r(0))
+//	};
 
 	// Create the Trajectory Configuration
 	//
@@ -42,6 +68,10 @@ public class AutoPaths {
 	// Max Velocity:        1.7 in/s
 	// Max Acceleration:    2.0 in/s/s
 	// Max Jerk:            60.0 in/s/s/s
-	public static Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC,
-			Trajectory.Config.SAMPLES_FAST, 0.02, maxVelocity, 400, 500.0);
+	public static Trajectory.Config configFast = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC,
+			Trajectory.Config.SAMPLES_FAST, 0.02, maxVelocity, 600, 1000.0);
+	
+	public static Trajectory.Config configSlow = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC,
+			Trajectory.Config.SAMPLES_FAST, 0.02, maxVelocity, 400, 600.0);
+	
 }

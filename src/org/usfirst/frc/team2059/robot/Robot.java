@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.DriveStraingAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
@@ -38,6 +39,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	
 	Command m_autonomousCommand;
+	Command elevate;
 	SendableChooser<RobotMap.Auto> m_chooser = new SendableChooser<>();
 	
 	public static UsbCamera camera1;
@@ -79,7 +81,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void disabledInit() {
-
+		if (elevate != null) {
+			elevate.cancel();
+		}
 	}
 
 	@Override
@@ -165,6 +169,9 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		
 //		CommandBase.pneumatics.setCompressorEnabled(true);
+		
+		elevate = new Elevate();
+		elevate.start();
 		
 		CommandBase.driveBase.setIsPID(false);		
 		CommandBase.driveBase.resetLeftEncoder();
