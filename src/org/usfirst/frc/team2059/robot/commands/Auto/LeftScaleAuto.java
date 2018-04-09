@@ -18,7 +18,7 @@ public class LeftScaleAuto extends CommandGroup{
 		if (RobotMap.gameData.charAt(1) == 'L') {
 			
 			addSequential(new PathDrive(AutoPaths.LeftToLeftScale, AutoPaths.configSlow), 7);
-			addSequential(new PIDElevate(RobotMap.ScaleHeight));
+			addSequential(new PIDElevate(RobotMap.ScaleHeight), 1);
 			addSequential(new PIDTurn(45));
 			addSequential(new Intake(1, 1), 2);
 

@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2059.robot;
 
+import org.usfirst.frc.team2059.robot.commands.Climb;
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
 import org.usfirst.frc.team2059.robot.commands.PIDElevate;
@@ -39,6 +40,9 @@ public class OI {
 	
 	JoystickButton button1d = new JoystickButton(driveJoystick, 1);
 	JoystickButton button2d = new JoystickButton(driveJoystick, 2);
+	JoystickButton button7d = new JoystickButton(driveJoystick, 7);
+	JoystickButton button8d = new JoystickButton(driveJoystick, 8);
+
 
 	
 	JoystickButton button1 = new JoystickButton(auxJoystick, 1);
@@ -73,6 +77,8 @@ public class OI {
 		button3.whileHeld(new Intake(-1.0, -0.4));
 		button4.whileHeld(new Intake(-0.4, -1.0));
 		
+		button7d.whileHeld(new Climb(1));
+		button8d.whileHeld(new Climb(-1));
 //		button6.whileHeld(new Elevate(1.0)); //Up
 //		button5.whileHeld(new Elevate(-1.0)); //Down
 

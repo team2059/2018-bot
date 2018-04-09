@@ -27,7 +27,7 @@ public class CenterAuto extends CommandGroup {
 		}
 		
 		addSequential(new Intake(1, 1), 1);
-		addSequential(new PIDDrive(-80), 3);
+		addSequential(new PIDDrive(-60), 2.5);
 		addSequential(new PIDElevate(0), 2);
 		
 		if (RobotMap.gameData.charAt(0) == 'L') {

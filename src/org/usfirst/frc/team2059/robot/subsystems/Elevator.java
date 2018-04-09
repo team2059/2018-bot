@@ -19,17 +19,24 @@ public class Elevator extends Subsystem{
 	DigitalInput hallEffectTop = new DigitalInput(RobotMap.hallEffect2);
 		
 	public void elevate(double s) {
-		System.out.println(s);
+		//System.out.println(s);
 		
-		System.out.println(getHallEffectBottom() == true && s < 0);
+		//System.out.println(getHallEffectBottom() == true && s < 0);
 		
 		if (getHallEffectBottom() == true && s < 0) {
+			
 			elevatorMotor.set(ControlMode.PercentOutput, 0);
+			elevatorMotor2.set(ControlMode.PercentOutput, 0);
+			
 		} else if (getHallEffectTop() == true && s > 0) {
+			
 			elevatorMotor.set(ControlMode.PercentOutput, 0);
+			elevatorMotor2.set(ControlMode.PercentOutput, 0);
 		}
 		else {
+			
 			elevatorMotor.set(ControlMode.PercentOutput, s);
+			elevatorMotor2.set(ControlMode.PercentOutput, -s);
 		}
 	}
 	

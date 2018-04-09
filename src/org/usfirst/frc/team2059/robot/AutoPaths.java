@@ -28,12 +28,12 @@ public class AutoPaths {
 	
 	public static Waypoint[] RightToCubes = new Waypoint[] {
 			new Waypoint(0, 0, Pathfinder.d2r(0)),
-			new Waypoint(60, 80, Pathfinder.d2r(45))
+			new Waypoint(72, 80, Pathfinder.d2r(40))
 	};
 	
 	public static Waypoint[] LeftToCubes = new Waypoint[] {
 			new Waypoint(0, 0, Pathfinder.d2r(0)),
-			new Waypoint(60, -70, Pathfinder.d2r(-45))
+			new Waypoint(72, -70, Pathfinder.d2r(-40))
 	};
 	
 	public static Waypoint[] RightToRightScale = new Waypoint[] {

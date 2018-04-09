@@ -51,8 +51,8 @@ public class RobotMap {
 	
 	
 	//Elevator
-	public static int elevatorMotor1 = 6;
-	public static int elevatorMotor2 = 7;
+	public static int elevatorMotor1 = 11;
+	public static int elevatorMotor2 = 10;
 	
 	public static int hallEffect1 = 4;
 	public static int hallEffect2 = 5;
@@ -71,8 +71,8 @@ public class RobotMap {
 	public static int rampMotor = 8;
 	
 	//Climber
-	public static int climberMotor1 = 9;
-	public static int climberMotor2 = 10;
+	public static int climberMotor1 = 7;
+	public static int climberMotor2 = 8;
 	
 	//Vision
 	public static int camera1 = 0;
@@ -105,3 +105,4 @@ public class RobotMap {
 }
 
 
+ 
