@@ -204,7 +204,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("Hall Effect Top", CommandBase.elevator.getHallEffectTop());
 		//SmartDashboard.putBoolean("Hall Effect 2", CommandBase.elevator.getHallEffect2());
 		SmartDashboard.putNumber("Elevator Encoder Value", CommandBase.elevator.getElevatorEncoder());
-		SmartDashboard.putBoolean("Compressor", CommandBase.pneumatics.getCompressorEnabled());
+		//SmartDashboard.putBoolean("Compressor", CommandBase.pneumatics.getCompressorEnabled());
 	}
 
 	/**

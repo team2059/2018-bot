@@ -17,13 +17,13 @@ public class AutoPaths {
 	public static Waypoint[] toLeftSwitch = new Waypoint[] {
 			new Waypoint(0, 0, Pathfinder.d2r(0)),
 			new Waypoint(50, 48, Pathfinder.d2r(0)),
-			new Waypoint(95, 48, Pathfinder.d2r(0))
+			new Waypoint(108, 48, Pathfinder.d2r(0))
 	};
 
 	public static Waypoint[] toRightSwitch = new Waypoint[] {
 			new Waypoint(0, 0, Pathfinder.d2r(0)),
-			new Waypoint(50, -52, Pathfinder.d2r(0)),
-			new Waypoint(95, -52, Pathfinder.d2r(0))
+			new Waypoint(50, -55, Pathfinder.d2r(0)),
+			new Waypoint(108, -52, Pathfinder.d2r(0))
 	};
 	
 	public static Waypoint[] RightToCubes = new Waypoint[] {

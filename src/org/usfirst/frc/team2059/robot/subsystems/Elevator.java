@@ -35,7 +35,7 @@ public class Elevator extends Subsystem{
 		}
 		else {
 			
-			elevatorMotor.set(ControlMode.PercentOutput, s);
+			elevatorMotor.set(ControlMode.PercentOutput, -s);
 			elevatorMotor2.set(ControlMode.PercentOutput, -s);
 		}
 	}
@@ -45,7 +45,7 @@ public class Elevator extends Subsystem{
 	}
 
 	public double getElevatorEncoder() {
-		return elevatorMotor.getSelectedSensorPosition(0) / 40408.555;
+		return elevatorMotor.getSelectedSensorPosition(0) / 20204.2775;
 	}
 	
 	public void setElevatorEncoder(int d) {
