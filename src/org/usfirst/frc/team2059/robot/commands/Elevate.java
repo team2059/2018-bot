@@ -1,13 +1,14 @@
 package org.usfirst.frc.team2059.robot.commands;
 
+import org.usfirst.frc.team2059.robot.OI;
 import org.usfirst.frc.team2059.robot.RobotMap;
 
 public class Elevate extends CommandBase{
 	
 	double speed;
 	
-	public Elevate(double s) {
-		speed = s;
+	public Elevate() {
+		requires(elevator);
 	}
 	
 	protected void initialize() {
@@ -15,7 +16,13 @@ public class Elevate extends CommandBase{
 	}
 	
 	protected void execute() {
-		elevator.elevate(speed);
+		
+		if(elevator.getHallEffectBottom() == true) {
+			elevator.setElevatorEncoder(0);
+		}
+		
+		//System.out.println("Elevator Joystick: " + OI.getAuxJoystick().getRawAxis(1));
+		elevator.elevate(-OI.getAuxJoystick().getRawAxis(1));
 	}
 	
 	protected void end() {

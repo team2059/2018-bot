@@ -10,14 +10,14 @@ public class SetLeftRampState extends CommandBase{
 	protected void initialize() {
 	}
 	
-	protected void execute() {
-		pneumatics.setLeftRampState(state);
-	}
-	
-	protected void end() {
-		pneumatics.setLeftRampState(!state);
-	}
-	
+//	protected void execute() {
+//		pneumatics.setLeftRampState(state);
+//	}
+//	
+//	protected void end() {
+//		pneumatics.setLeftRampState(!state);
+//	}
+//	
 	protected void interrupted() {
 		end();
 	}

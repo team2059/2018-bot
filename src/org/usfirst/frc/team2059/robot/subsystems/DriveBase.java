@@ -42,6 +42,11 @@ public class DriveBase extends HHSensorDrive {
 		setyHighSpeed(.8);
 		setzHighSpeed(.8);
 		gyro.calibrate();
+		leftMotor1.setSafetyEnabled(false);
+		leftMotor2.setSafetyEnabled(false);
+		rightMotor1.setSafetyEnabled(false);
+		rightMotor2.setSafetyEnabled(false);
+
 	}
 
 	@Override
@@ -69,6 +74,14 @@ public class DriveBase extends HHSensorDrive {
 		return -rightEncoder.get() / 6.88;
 	}
 
+	public int getLeftEncoderRaw() {
+		return leftEncoder.get();
+	}
+
+	public int getRightEncoderRaw() {
+		return -rightEncoder.get();
+	}
+
 	@Override
 	public double getGyro() {
 		return gyro.getAngle() % 360;
@@ -81,7 +94,13 @@ public class DriveBase extends HHSensorDrive {
 	
 	@Override
 	public void driveBase(double x, double y) {
+		System.out.println("x: " + x + " y: " + y);
 		robotDrive.arcadeDrive(y, x);
 	}
-	
+
+	public void driveBaseTank(double left, double right) {
+		if (isPID()) {
+			robotDrive.tankDrive(left, right);
+		}
+	}
 }

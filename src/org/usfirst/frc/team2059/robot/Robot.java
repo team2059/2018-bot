@@ -18,10 +18,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Auto.CenterAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.DriveStraingAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.LeftAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.LeftScaleAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.LeftSwitchAuto;
 import org.usfirst.frc.team2059.robot.commands.Auto.RightAuto;
+import org.usfirst.frc.team2059.robot.commands.Auto.RightScaleAuto;
 import org.usfirst.frc.team2059.robot.commands.Drivetrain.PIDDrive;
 
 /**
@@ -35,6 +39,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	
 	Command m_autonomousCommand;
+	Command elevate;
 	SendableChooser<RobotMap.Auto> m_chooser = new SendableChooser<>();
 	
 	public static UsbCamera camera1;
@@ -48,7 +53,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		CommandBase.init();
-		
+		CommandBase.driveBase.setIsPID(true);
 		CommandBase.driveBase.resetLeftEncoder();
 		CommandBase.driveBase.resetRightEncoder();	
 		
@@ -63,6 +68,9 @@ public class Robot extends IterativeRobot {
 		m_chooser.addObject("Left Auto", RobotMap.Auto.LEFT);
 		m_chooser.addObject("Right Auto", RobotMap.Auto.RIGHT);
 		m_chooser.addObject("Center Auto", RobotMap.Auto.CENTER);
+		m_chooser.addObject("Left Scale Auto", RobotMap.Auto.LEFTSCALE);
+		m_chooser.addObject("Right Scale Auto", RobotMap.Auto.RIGHTSCALE);
+		m_chooser.addObject("Left Switch Auto", RobotMap.Auto.LEFTSWITCH);
 		SmartDashboard.putData("Auto mode", m_chooser);
  	}
 
@@ -73,7 +81,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void disabledInit() {
-
+		if (elevate != null) {
+			elevate.cancel();
+		}
 	}
 
 	@Override
@@ -94,6 +104,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		
+		CommandBase.driveBase.setIsPID(true);
+		
 		CommandBase.driveBase.resetGyro();
 		try {
 			RobotMap.gameData = DriverStation.getInstance().getGameSpecificMessage();
@@ -114,6 +127,15 @@ public class Robot extends IterativeRobot {
 				break;
 			case RIGHT:
 				m_autonomousCommand = new RightAuto();
+				break;
+			case LEFTSCALE:
+				m_autonomousCommand = new LeftScaleAuto();
+				break;
+			case RIGHTSCALE:
+				m_autonomousCommand = new RightScaleAuto();
+				break;
+			case LEFTSWITCH:
+				m_autonomousCommand = new LeftSwitchAuto();
 				break;
 			case DONOTHING:
 			default:
@@ -146,7 +168,10 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		
-		CommandBase.pneumatics.setCompressorEnabled(true);
+//		CommandBase.pneumatics.setCompressorEnabled(true);
+		
+		elevate = new Elevate();
+		elevate.start();
 		
 		CommandBase.driveBase.setIsPID(false);		
 		CommandBase.driveBase.resetLeftEncoder();
@@ -179,7 +204,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("Hall Effect Top", CommandBase.elevator.getHallEffectTop());
 		//SmartDashboard.putBoolean("Hall Effect 2", CommandBase.elevator.getHallEffect2());
 		SmartDashboard.putNumber("Elevator Encoder Value", CommandBase.elevator.getElevatorEncoder());
-		SmartDashboard.putBoolean("Compressor", CommandBase.pneumatics.getCompressorEnabled());
+		//SmartDashboard.putBoolean("Compressor", CommandBase.pneumatics.getCompressorEnabled());
 	}
 
 	/**

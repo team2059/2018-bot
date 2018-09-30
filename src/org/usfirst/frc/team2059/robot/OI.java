@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2059.robot;
 
+import org.usfirst.frc.team2059.robot.commands.Climb;
 import org.usfirst.frc.team2059.robot.commands.Elevate;
 import org.usfirst.frc.team2059.robot.commands.Intake;
 import org.usfirst.frc.team2059.robot.commands.PIDElevate;
@@ -35,10 +36,13 @@ public class OI {
 	
 	private static Joystick driveJoystick = new Joystick(0);
 	private static Joystick auxJoystick = new Joystick(1);
-	private static Joystick box = new Joystick(2);
+//	private static Joystick box = new Joystick(2);
 	
 	JoystickButton button1d = new JoystickButton(driveJoystick, 1);
 	JoystickButton button2d = new JoystickButton(driveJoystick, 2);
+	JoystickButton button7d = new JoystickButton(driveJoystick, 7);
+	JoystickButton button8d = new JoystickButton(driveJoystick, 8);
+
 
 	
 	JoystickButton button1 = new JoystickButton(auxJoystick, 1);
@@ -53,17 +57,17 @@ public class OI {
 	JoystickButton button11 = new JoystickButton(auxJoystick, 11);
 	JoystickButton button12 = new JoystickButton(auxJoystick, 12);
 
-	JoystickButton button1b = new JoystickButton(box, 1);
-	JoystickButton button2b = new JoystickButton(box, 2);
-	JoystickButton button3b = new JoystickButton(box, 3);
-	JoystickButton button4b = new JoystickButton(box, 4);
+//	JoystickButton button1b = new JoystickButton(box, 1);
+//	JoystickButton button2b = new JoystickButton(box, 2);
+//	JoystickButton button3b = new JoystickButton(box, 3);
+//	JoystickButton button4b = new JoystickButton(box, 4);
 	
 	public static Joystick getDriveJoystick() {
 		return driveJoystick;
 	}
 	
-	public static Joystick getBoxJoystic() {
-		return box;
+	public static Joystick getAuxJoystick() {
+		return auxJoystick;
 	}
 	
 	
@@ -73,18 +77,20 @@ public class OI {
 		button3.whileHeld(new Intake(-1.0, -0.4));
 		button4.whileHeld(new Intake(-0.4, -1.0));
 		
-		button6.whileHeld(new Elevate(1.0)); //Up
-		button5.whileHeld(new Elevate(-1.0)); //Down
+		button7d.whileHeld(new Climb(1));
+		button8d.whileHeld(new Climb(-1));
+//		button6.whileHeld(new Elevate(1.0)); //Up
+//		button5.whileHeld(new Elevate(-1.0)); //Down
 
 		//button7.whenPressed(new SetLeftRampState(true));
 		//button8.whenPressed(new SetLeftRampState(false));
-		button7.whileHeld(new RampDown(.5));
-		button8.whileHeld(new RampDown(-.5));
+		//button7.whileHeld(new RampDown(.5));
+		//button8.whileHeld(new RampDown(-.5));
 		
-		button1b.whenPressed(new SetRightRampState(true));
-		button2b.whenPressed(new SetRightRampState(false));
-		button3b.whenPressed(new SetLeftRampState(true));
-		button4b.whenPressed(new SetLeftRampState(false));
+		//button1b.whenPressed(new SetRightRampState(true));
+		//button2b.whenPressed(new SetRightRampState(false));
+		//button3b.whenPressed(new SetLeftRampState(true));
+		//button4b.whenPressed(new SetLeftRampState(false));
 		
 		//button9.whenPressed(new SetRightRampState(true));
 		//button12.whenPressed(new SetRightRampState(false));
@@ -94,7 +100,11 @@ public class OI {
 		
 		button11.whenPressed(new PIDElevate(0));
 		button12.whenPressed(new PIDElevate(40));
-		button2.whenPressed(new PIDElevate(70));
+		
+		button2.whileHeld(new Intake(.3,.3));
+		
+		//button2.whenPressed(new PIDElevate(70));
+		
 		//button12.whenPressed(new PIDElevate(71));
 		
 	}

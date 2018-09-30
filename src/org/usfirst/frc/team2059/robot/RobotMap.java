@@ -33,14 +33,17 @@ public class RobotMap {
 	public static double correction = .1;
 	public static double deadzone = 0;
 	
-	public static double pDriveTurn = 0.033;
+	public static double pDriveTurn = 0.031;
 	public static double iDriveTurn = 0.0;
 	public static double dDriveTurn = 0.055;
-	
 
-	public static double pDriveStraight = 0.035;
+	public static double pDriveStraight = 0.033;
 	public static double iDriveStraight = 0.0;
 	public static double dDriveStraight = 0.15;
+
+	public static double straightLineP = 0.018;
+	public static double straightLineI = 0;
+	public static double straightLineD = 0.0054;
 	
 	//Collector
 	public static int collectorMotor1 = 4;
@@ -48,8 +51,8 @@ public class RobotMap {
 	
 	
 	//Elevator
-	public static int elevatorMotor1 = 6;
-	public static int elevatorMotor2 = 7;
+	public static int elevatorMotor1 = 11;
+	public static int elevatorMotor2 = 10;
 	
 	public static int hallEffect1 = 4;
 	public static int hallEffect2 = 5;
@@ -61,11 +64,15 @@ public class RobotMap {
 	public static double ElevatorI = 0;
 	public static double ElevatorD = 0;
 	
-	public static int SwitchHeight = 40;
-	public static int ScaleHeight = 80;
+	public static int SwitchHeight = 35;
+	public static int ScaleHeight = 60;
 	
 	//Ramps
 	public static int rampMotor = 8;
+	
+	//Climber
+	public static int climberMotor1 = 7;
+	public static int climberMotor2 = 8;
 	
 	//Vision
 	public static int camera1 = 0;
@@ -90,8 +97,12 @@ public class RobotMap {
 		DRIVESTRAIGHT,
 		LEFT,
 		CENTER,
-		RIGHT
+		RIGHT,
+		LEFTSCALE,
+		RIGHTSCALE,
+		LEFTSWITCH
 	}
 }
 
 
+ 
