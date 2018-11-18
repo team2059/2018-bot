@@ -1,0 +1,37 @@
+package frc.team2059.robot.commands.Auto;
+
+import frc.team2059.robot.RobotMap;
+import frc.team2059.robot.commands.Intake;
+import frc.team2059.robot.commands.PIDElevate;
+import frc.team2059.robot.commands.Drivetrain.PIDDrive;
+import frc.team2059.robot.commands.Drivetrain.PIDTurn;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.command.CommandGroup;
+
+public class RightAuto extends CommandGroup{
+	
+	public RightAuto() {
+		
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		
+		if(!gameData.equals("") && gameData.charAt(0) == 'R' )
+		{
+			//Put switch auto code here
+			//addParallel(new PIDElevate(RobotMap.SwitchHeight));
+			addSequential(new PIDDrive(36));
+			addSequential(new PIDTurn(-90));
+			//addSequential(new Intake(-1), 1000);
+			
+		} else if (!gameData.equals("") && gameData.charAt(1) == 'R') {
+			//Put scale auto code here
+			addParallel(new PIDElevate(RobotMap.ScaleHeight));
+			addSequential(new PIDDrive(96));
+			addSequential(new PIDTurn(270));
+			//addSequential(new Intake(-1), 1000);
+		} else {
+			addSequential(new PIDDrive(60));
+		}
+	}
+
+}
